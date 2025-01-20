@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { PrivateRoutes } from './PrivateRoutes';
 import { App } from '../App';
 
 import { PrivateRoutes as AuthRoutes } from '../domains/auth/PrivateRoutes';
+import { PrivateRoutes } from './PrivateRoutes';
+import { Home } from '../components/Home';
 
 const { BASE_URL } = import.meta.env;
 
@@ -12,14 +13,14 @@ const AppRoutes: FC = () => {
     <BrowserRouter basename={BASE_URL}>
       <Routes>
         <Route element={<App />}>
-          {/* TODO: Create Error Page */}
-          <Route path='error/*' element={<>Error</>} />
-          {/* TODO: Create Logout Page */}
-          <Route path='logout' element={<>Logout</>} />
+          {/* Home page */}
+          <Route path='/' element={<Home />} />
+          
+          {/* TODO: create auth */}
+          {/* Auth routes */}
+          <Route path='auth/*' element={<AuthRoutes />} />
 
-          <Route path='auth/*' element={<AuthRoutes />}></Route>
-
-          {/* TODO: Create Auth */}
+          {/* Private routes (if authenticated) */}
           <Route path='/*' element={<PrivateRoutes />} />
         </Route>
       </Routes>

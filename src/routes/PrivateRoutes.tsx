@@ -1,23 +1,25 @@
 import { FC } from 'react';
-import { Outlet, Route, Routes } from 'react-router-dom';
-import { Dashboard } from '../domains/dashboard/Dashboard';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
+import { MasterLayout } from '../layout/MasterLayout';
+
+import { PrivateRoutes as UserRoutes } from '../domains/user/PrivateRoutes';
+import { PrivateRoutes as ErrorRoutes } from '../domains/error/PrivateRoutes';
 
 const PrivateRoutes: FC = () => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to='/auth/signin' />;
+  }
+
   return (
     <Routes>
       {/* TODO: create master layout */}
-      <Route
-        element={
-          <>
-            Master Layout
-            <Outlet />
-          </>
-        }
-      >
-        {/* TODO: Create dashboard pages */}
-        <Route path='dashboard' element={<Dashboard />}></Route>
-        <Route path='/' element={<Dashboard />}></Route>
+      <Route element={<MasterLayout />}>
+        <Route path='/user/*' element={<UserRoutes />}></Route>
       </Route>
+      <Route path='*' element={<ErrorRoutes />} />
     </Routes>
   );
 };

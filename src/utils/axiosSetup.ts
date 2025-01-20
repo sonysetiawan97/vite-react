@@ -5,11 +5,13 @@ import {
   InternalAxiosRequestConfig,
 } from 'axios';
 
+const { VITE_API_BASE_URL, VITE_API_TIMEOUT } = import.meta.env;
+
 const axiosSetup = (axios: Axios) => {
   axios.interceptors.request.use(
     (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-      config.baseURL = import.meta.env.VITE_API_BASE_URL;
-      config.timeout = import.meta.env.VITE_API_TIMEOUT;
+      config.baseURL = VITE_API_BASE_URL || 'localhost:8000';
+      config.timeout = VITE_API_TIMEOUT || 30;
       config.headers['Content-Type'] = 'application/json';
 
       const token = localStorage.getItem('authToken');
