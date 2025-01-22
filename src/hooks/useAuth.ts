@@ -9,8 +9,8 @@ const useAuth = () => {
   return {
     ...authState,
     user: {
-      userState
-    }
+      userState,
+    },
   };
 };
 
