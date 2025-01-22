@@ -1,11 +1,16 @@
 import { useStore } from '@nanostores/react';
-import { auth } from '../domains/auth/stores/auth';
+import { authStores } from '../domains/auth/stores/authStores';
+import { userStores } from '../domains/user/stores/userStores';
 
 const useAuth = () => {
-  const { isAuthenticated } = useStore(auth);
+  const authState = useStore(authStores);
+  const userState = useStore(userStores);
 
   return {
-    isAuthenticated,
+    ...authState,
+    user: {
+      userState
+    }
   };
 };
 

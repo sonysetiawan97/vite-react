@@ -5,12 +5,18 @@ import {
   InternalAxiosRequestConfig,
 } from 'axios';
 
-const { VITE_API_BASE_URL, VITE_API_TIMEOUT } = import.meta.env;
+const { VITE_API_AUTH_URL, VITE_API_BASE_URL, VITE_API_TIMEOUT } = import.meta
+  .env;
 
 const axiosSetup = (axios: Axios) => {
   axios.interceptors.request.use(
     (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-      config.baseURL = VITE_API_BASE_URL || 'localhost:8000';
+      config.baseURL = VITE_API_BASE_URL;
+
+      if (config.url?.includes('auth')) {
+        config.baseURL = VITE_API_AUTH_URL;
+      }
+
       config.timeout = VITE_API_TIMEOUT || 30;
       config.headers['Content-Type'] = 'application/json';
 

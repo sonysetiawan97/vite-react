@@ -3,8 +3,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { MasterLayout } from '../layout/MasterLayout';
 
-import { PrivateRoutes as UserRoutes } from '../domains/user/PrivateRoutes';
-import { PrivateRoutes as ErrorRoutes } from '../domains/error/PrivateRoutes';
+import { UserRoutes } from '../domains/user/UserRoutes';
+import { ErrorRoutes } from '../domains/error/ErrorRoutes';
 
 const PrivateRoutes: FC = () => {
   const { isAuthenticated } = useAuth();

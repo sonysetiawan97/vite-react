@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { List } from './pages/List';
+import { NotFound } from './pages/404NotFound';
 
-const PrivateRoutes: FC = () => {
+const ErrorRoutes: FC = () => {
   return (
     <Routes>
       {/* TODO: create error page */}
-      <Route path='*' element={<List />} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
   );
 };
 
-export { PrivateRoutes };
+export { ErrorRoutes };

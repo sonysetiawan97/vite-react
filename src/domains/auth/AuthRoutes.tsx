@@ -3,9 +3,9 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 
-import { PrivateRoutes as ErrorRoutes } from '../error/PrivateRoutes';
+import { ErrorRoutes } from '../error/ErrorRoutes';
 
-const PrivateRoutes: FC = () => {
+const AuthRoutes: FC = () => {
   return (
     <Routes>
       {/* TODO: Create Auth Layout */}
@@ -17,7 +17,7 @@ const PrivateRoutes: FC = () => {
         }
       >
         <Route path='login' element={<Login />} />
-        <Route path='Register' element={<Register />} />
+        <Route path='register' element={<Register />} />
         <Route index element={<Login />} />
       </Route>
       <Route path='*' element={<ErrorRoutes />} />
@@ -25,4 +25,4 @@ const PrivateRoutes: FC = () => {
   );
 };
 
-export { PrivateRoutes };
+export { AuthRoutes };
