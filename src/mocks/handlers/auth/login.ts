@@ -1,6 +1,6 @@
 import { DefaultBodyType, http, HttpResponse, Path } from 'msw';
-import { LoginRequest } from '../../../domains/auth/types/LoginRequest';
-import { AuthResponse } from '../../../domains/auth/types/AuthResponse';
+import { LoginRequest } from '../../../../src/domains/auth/types/LoginRequest';
+import { AuthResponse } from '../../../../src/domains/auth/types/AuthResponse';
 
 const USERNAME = 'admin';
 const PASSWORD = 'password';

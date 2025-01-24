@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend';
 
-const { VITE_MODE } = import.meta.env;
+const { VITE_APP_ENV } = import.meta.env;
 
 i18n
   .use(HttpBackend)
@@ -11,7 +11,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    debug: VITE_MODE === 'development',
+    debug: VITE_APP_ENV === 'development',
     interpolation: {
       escapeValue: false,
     },

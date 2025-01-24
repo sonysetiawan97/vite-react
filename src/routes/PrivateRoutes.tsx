@@ -5,6 +5,7 @@ import { MasterLayout } from '../layout/MasterLayout';
 
 import { UserRoutes } from '../domains/user/UserRoutes';
 import { ErrorRoutes } from '../domains/error/ErrorRoutes';
+import { Dashboard } from '../components/Dashboard';
 
 const PrivateRoutes: FC = () => {
   const { isAuthenticated } = useAuth();
@@ -18,6 +19,7 @@ const PrivateRoutes: FC = () => {
       {/* TODO: create master layout */}
       <Route element={<MasterLayout />}>
         <Route path='/user/*' element={<UserRoutes />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
       </Route>
       <Route path='*' element={<ErrorRoutes />} />
     </Routes>

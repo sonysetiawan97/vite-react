@@ -11,9 +11,9 @@ import { AppRoutes } from './routes/AppRoutes.tsx';
 
 axiosSetup(axios);
 
-const { VITE_MODE, VITE_MODE_MOCK } = import.meta.env;
+const { VITE_APP_ENV, VITE_APP_MODE_MOCK } = import.meta.env;
 
-if (VITE_MODE === 'development' && VITE_MODE_MOCK === 'true') {
+if (VITE_APP_ENV === 'development' && VITE_APP_MODE_MOCK === 'true') {
   const { server } = await import('./mocks/browser.ts');
   server.start();
 }
