@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { login } from '../services/loginService';
 import { LoginRequest } from '../types/LoginRequest';
+import { useNavigate } from 'react-router-dom';
 
 export const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const request: LoginRequest = { username, password };
 
     try {
-      const response = await login(request);
-      console.log('Logged in successfully:', response);
+      await login(request);
+      navigate('/dashboard');
     } catch (err) {
       setError('Invalid username or password');
       console.error('err:', err);

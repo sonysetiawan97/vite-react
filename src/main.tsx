@@ -14,8 +14,8 @@ axiosSetup(axios);
 const { VITE_MODE, VITE_MODE_MOCK } = import.meta.env;
 
 if (VITE_MODE === 'development' && VITE_MODE_MOCK === 'true') {
-  const { enableMocks } = await import('./mocks');
-  enableMocks();
+  const { server } = await import('./mocks/browser.ts');
+  server.start();
 }
 
 createRoot(document.getElementById('root')!).render(
