@@ -5,10 +5,11 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const port: number = parseInt(env.VITE_APP_PORT) | 3000;
+  const port: number = parseInt(env.VITE_APP_PORT) | 5173;
 
   return {
     define: {
+      __APP_VERSION__: JSON.stringify(env.VITE_APP_VERSION),
       __APP_ENV__: JSON.stringify(env.VITE_APP_ENV),
     },
 
