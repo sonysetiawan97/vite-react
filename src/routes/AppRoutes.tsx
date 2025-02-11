@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { App } from '../App';
 
-import { AuthRoutes } from '../domains/auth/AuthRoutes';
+import { AuthRoutes } from '../modules/auth/AuthRoutes';
 import { PrivateRoutes } from './PrivateRoutes';
-import { ErrorRoutes } from '../domains/error/ErrorRoutes';
+import { ErrorRoutes } from '../modules/error/ErrorRoutes';
 
 import { Home } from '../components/Home';
 

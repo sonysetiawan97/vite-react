@@ -12,11 +12,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "init:msw": "npx msw init public/ --save"
+    "msw": "npx msw init public/ --save"
   },
   "dependencies": {
     "@nanostores/react": "^0.8.4",
-    "@vitejs/plugin-basic-ssl": "^1.2.0",
+    "@types/node": "^22.13.1",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "i18next": "^24.2.1",
@@ -27,7 +27,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.4.0",
-    "react-router-dom": "^7.1.1"
+    "react-router-dom": "^7.1.1",
+    "vite-plugin-mkcert": "^1.17.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -1,9 +1,9 @@
-import {
+import type {
   Axios,
   AxiosError,
   AxiosResponse,
   InternalAxiosRequestConfig,
-} from 'axios';
+} from "axios";
 
 const { VITE_API_AUTH_URL, VITE_API_BASE_URL, VITE_API_TIMEOUT } = import.meta
   .env;
@@ -13,14 +13,14 @@ const axiosSetup = (axios: Axios) => {
     (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
       config.baseURL = VITE_API_BASE_URL;
 
-      if (config.url?.includes('auth')) {
+      if (config.url?.includes("auth")) {
         config.baseURL = VITE_API_AUTH_URL;
       }
 
       config.timeout = VITE_API_TIMEOUT || 30;
-      config.headers['Content-Type'] = 'application/json';
+      config.headers["Content-Type"] = "application/json";
 
-      const token = localStorage.getItem('authToken');
+      const token = localStorage.getItem("authToken");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -28,7 +28,7 @@ const axiosSetup = (axios: Axios) => {
       return config;
     },
     (error) => {
-      console.error('Request error :: ', error.response, ' | ', error.message);
+      console.error("Request error :: ", error.response, " | ", error.message);
       return Promise.reject(error);
     }
   );
@@ -37,10 +37,10 @@ const axiosSetup = (axios: Axios) => {
     (response: AxiosResponse) => response,
     (error: AxiosError) => {
       console.error(
-        'Response error ::',
+        "Response error ::",
         error.status,
         error.code,
-        '|',
+        "|",
         error.message
       );
       return Promise.reject(error);

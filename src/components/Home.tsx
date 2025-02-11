@@ -1,12 +1,7 @@
-import { FC } from 'react';
+import type { FC } from "react";
 
 const Home: FC = () => {
-  return <>
-  Home
-    <button className="btn btn-primary">button</button>
-  </>;
+  return <>Home</>;
 };
 
-export {
-  Home,
-};
+export { Home };

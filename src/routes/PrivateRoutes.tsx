@@ -1,27 +1,32 @@
-import { FC } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
-import { MasterLayout } from '../layout/MasterLayout';
+import type { FC } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import { MasterLayout } from "../layout/MasterLayout";
 
-import { UserRoutes } from '../domains/user/UserRoutes';
-import { ErrorRoutes } from '../domains/error/ErrorRoutes';
-import { Dashboard } from '../components/Dashboard';
+import { UserRoutes } from "../modules/user/UserRoutes";
+import { ErrorRoutes } from "../modules/error/ErrorRoutes";
+import { Dashboard } from "../components/Dashboard";
+
+import { ProductRoutes } from "../modules/products/ProductRoutes";
+import { ExampleRoutes } from "../modules/example/ExampleRoutes";
 
 const PrivateRoutes: FC = () => {
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    return <Navigate to='/auth/signin' />;
+    return <Navigate to="/auth/login" />;
   }
 
   return (
     <Routes>
       {/* TODO: create master layout */}
       <Route element={<MasterLayout />}>
-        <Route path='/user/*' element={<UserRoutes />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path="/user/*" element={<UserRoutes />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/products/*" element={<ProductRoutes />} />
+        <Route path="/examples/*" element={<ExampleRoutes />} />
       </Route>
-      <Route path='*' element={<ErrorRoutes />} />
+      <Route path="*" element={<ErrorRoutes />} />
     </Routes>
   );
 };

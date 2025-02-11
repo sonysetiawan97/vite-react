@@ -1,12 +1,11 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import basicSsl from "@vitejs/plugin-basic-ssl";
-import path from "path";
+import path from "node:path";
+import mkcert from "vite-plugin-mkcert";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const port: number = parseInt(env.VITE_APP_PORT) | 5173;
+  const port: number = Number.parseInt(env.VITE_APP_PORT) || 5173;
 
   return {
     define: {
@@ -15,7 +14,7 @@ export default defineConfig(({ mode }) => {
     },
 
     base: env.VITE_APP_BASE_URL || "/",
-    plugins: [react(), basicSsl()],
+    plugins: [react(), mkcert({ savePath: "./certs", force: true })],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
@@ -23,20 +22,24 @@ export default defineConfig(({ mode }) => {
         "@hooks": path.resolve(__dirname, "./src/hooks"),
         "@stores": path.resolve(__dirname, "./src/stores"),
         "@services": path.resolve(__dirname, "./src/services"),
+        "@modules": path.resolve(__dirname, "./src/modules"),
       },
     },
 
     server: {
       port,
       open: true,
-      proxy: {
-        "/api": {
-          target: env.VITE_API_BASE_URL || "http://localhost:8000",
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ""),
-        },
+      // proxy: {
+      //   "/api/v1": {
+      //     target: env.VITE_API_BASE_URL || "http://localhost:8000",
+      //     changeOrigin: true,
+      //     rewrite: (path) => path.replace(/^\/api\/v1/, ""),
+      //   },
+      // },
+      https: {
+        cert: path.resolve(__dirname, "certs/cert.pem"),
+        key: path.resolve(__dirname, "certs/dev.pem"),
       },
-      https: true,
     },
 
     build: {

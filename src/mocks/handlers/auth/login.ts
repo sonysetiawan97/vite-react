@@ -1,24 +1,24 @@
-import { DefaultBodyType, http, HttpResponse, Path } from 'msw';
-import { LoginRequest } from '../../../../src/domains/auth/types/LoginRequest';
-import { AuthResponse } from '../../../../src/domains/auth/types/AuthResponse';
+import { type DefaultBodyType, http, HttpResponse, type Path } from "msw";
+import type { LoginRequest } from "@modules/auth/types/LoginRequest";
+import type { AuthResponse } from "@modules/auth/types/AuthResponse";
 
-const USERNAME = 'admin';
-const PASSWORD = 'password';
+const USERNAME = "admin";
+const PASSWORD = "password";
 
 export const login = http.post<
   Path,
   LoginRequest,
-  AuthResponse | DefaultBodyType,
-  '/auth/login'
->('/auth/login', async ({ request }) => {
+  DefaultBodyType,
+  "/auth/login"
+>("/auth/login", async ({ request }) => {
   const { username, password } = await request.json();
 
   if (username === USERNAME && password === PASSWORD) {
     const response: AuthResponse = {
-      accessToken: 'mock-token-123123',
+      accessToken: "mock-token-123123",
       user: {
-        email: 'admin@example.com',
-        username: 'admin',
+        email: "admin@example.com",
+        username: "admin",
       },
     };
 
@@ -27,8 +27,8 @@ export const login = http.post<
 
   return HttpResponse.json(
     {
-      error: 'Invalid auth',
-      message: 'Invalid username or password',
+      error: "Invalid auth",
+      message: "Invalid username or password",
     },
     { status: 401 }
   );
