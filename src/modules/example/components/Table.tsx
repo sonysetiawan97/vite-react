@@ -1,22 +1,38 @@
-import { useStore } from "@nanostores/react";
-import { useEffect, type FC } from "react";
-import { fetchExamples, exampleStore } from "../stores/exampleStore";
+import { useState, type FC } from "react";
+import { Loading } from "@/components/Loading";
+import { Pagination } from "@/components/Pagination";
+import { useList } from "@/hooks/useList";
+import type { Example } from "../types/exampleTypes";
+import { EmptyData } from "@/components/EmptyData";
 
 export const Table: FC = () => {
-  const examples = useStore(exampleStore);
-
-  useEffect(() => {
-    fetchExamples();
-  }, []);
+  const [skip, setSkip] = useState(0);
+  const { data, isLoading, error } = useList<Example>({
+    module: "examples",
+    skip,
+  });
 
   const renderRows = () => {
-    return examples.map((product, index) => (
-      <tr key={product.id}>
-        <td className="p-2 border">{index + 1}</td>
-        <td className="p-2 border">{product.name}</td>
+    if (!data) {
+      return (
+        <tr>
+          <td colSpan={2}>
+            <EmptyData />
+          </td>
+        </tr>
+      );
+    }
+
+    return data.data.map((example) => (
+      <tr key={example.id}>
+        <td className="p-2 border">{example.id}</td>
+        <td className="p-2 border">{example.name}</td>
       </tr>
     ));
   };
+
+  if (isLoading) return <Loading />;
+  if (error instanceof Error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -29,6 +45,8 @@ export const Table: FC = () => {
         </thead>
         <tbody>{renderRows()}</tbody>
       </table>
+
+      <Pagination count={100} skip={skip} limit={10} onPageChange={setSkip} />
     </>
   );
 };

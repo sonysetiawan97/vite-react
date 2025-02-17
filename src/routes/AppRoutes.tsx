@@ -18,7 +18,6 @@ const AppRoutes: FC = () => {
           {/* Home page */}
           <Route path='/' element={<Home />} />
 
-          {/* TODO: create auth */}
           {/* Auth routes */}
           <Route path='/auth/*' element={<AuthRoutes />} />
 

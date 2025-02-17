@@ -7,6 +7,9 @@ const data: Product[] = [
 ];
 
 export const get = http.get("/api/v1/products", () => {
-  const body = [...data];
+  const body = {
+    data: [...data],
+    count: data.length,
+  };
   return HttpResponse.json(body, { status: 200, statusText: "Data retrieve." });
 });
