@@ -46,7 +46,12 @@ export const Table: FC = () => {
         <tbody>{renderRows()}</tbody>
       </table>
 
-      <Pagination count={100} skip={skip} limit={10} onPageChange={setSkip} />
+      <Pagination
+        count={data?.count || 0}
+        skip={skip}
+        limit={10}
+        onPageChange={setSkip}
+      />
     </>
   );
 };
