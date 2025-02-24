@@ -3,7 +3,7 @@ import { Loading } from "@/components/Loading";
 import { Pagination } from "@/components/Pagination";
 import { useList } from "@/hooks/useList";
 import type { Example } from "../types/exampleTypes";
-import { EmptyData } from "@/components/EmptyData";
+import { EmptyData } from "@/components/errors/EmptyData";
 
 export const Table: FC = () => {
   const [skip, setSkip] = useState(0);
@@ -46,7 +46,12 @@ export const Table: FC = () => {
         <tbody>{renderRows()}</tbody>
       </table>
 
-      <Pagination count={100} skip={skip} limit={10} onPageChange={setSkip} />
+      <Pagination
+        count={data?.count || 0}
+        skip={skip}
+        limit={10}
+        onPageChange={setSkip}
+      />
     </>
   );
 };

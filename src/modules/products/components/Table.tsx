@@ -3,7 +3,7 @@ import { Loading } from "@/components/Loading";
 import { Pagination } from "@/components/Pagination";
 import { useList } from "@/hooks/useList";
 import type { Product } from "../types/productTypes";
-import { EmptyData } from "@/components/EmptyData";
+import { EmptyData } from "@/components/errors/EmptyData";
 
 export const Table: FC = () => {
   const [skip, setSkip] = useState(0);
@@ -13,7 +13,7 @@ export const Table: FC = () => {
   });
 
   const renderRows = () => {
-    if (!data || !data.data || !data.count) {
+    if (!data || !data.data) {
       return (
         <tr>
           <td colSpan={2}>

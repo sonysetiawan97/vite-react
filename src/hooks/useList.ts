@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchingAll } from "@/services/fetchingAll";
 
-interface UseListProps<T> {
+interface UseListProps {
   module: string;
   skip?: number;
   limit?: number;
@@ -13,7 +13,7 @@ export const useList = <T>({
   module,
   skip = 0,
   limit = VITE_PAGE_LIMIT,
-}: UseListProps<T>) => {
+}: UseListProps) => {
   return useQuery({
     queryKey: [module, skip],
     queryFn: async () => {
