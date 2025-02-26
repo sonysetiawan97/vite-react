@@ -1,0 +1,9 @@
+{
+  "language": "Language",
+  "button": {
+    "action": "Action",
+    "read": "Read",
+    "edit": "Edit",
+    "delete": "Delete"
+  }
+}

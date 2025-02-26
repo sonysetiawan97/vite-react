@@ -1,3 +1,9 @@
 {
-  "language": "Bahasa"
+  "language": "Bahasa",
+  "button": {
+    "action": "Aksi",
+    "read": "Baca",
+    "edit": "Ubah",
+    "delete": "Hapus"
+  }
 }

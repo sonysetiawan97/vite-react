@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 export interface ColumnConfig<T> {
   title: string;
   name: keyof T;
-  render?: (row: T, value: any, rowIndex: number) => ReactNode;
+  render?: (row: T, value: unknown, rowIndex: number) => ReactNode;
 }
 
 export interface TableProps<T> {
@@ -48,7 +48,7 @@ export const Table = <T extends object>({
               const cell =
                 typeof col.render === "function"
                   ? col.render(row, row[col.name], rowIndex)
-                  : row[col.name];
+                  : (row[col.name] as unknown as ReactNode);
               return (
                 <td key={`${col.title}-${colIndex}`} className="p-2 border">
                   {cell}
