@@ -24,20 +24,23 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="d-flex flex-column gap-2 align-items-center">
+      <h5 className="text-white">Login</h5>
       <input
+        className="form-control bg-transparent text-white"
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-      />
+        />
       <input
+        className="form-control bg-transparent text-white"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">Login</button>
+      <button type="submit" className="btn btn-light w-100">Login</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </form>
   );

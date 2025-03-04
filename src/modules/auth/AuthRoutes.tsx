@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { AuthLayout } from "../../layout/AuthLayout";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 
@@ -9,7 +10,7 @@ const AuthRoutes: FC = () => {
   return (
     <Routes>
       {/* TODO: Create Auth Layout */}
-      <Route element={<Outlet />}>
+      <Route element={<AuthLayout />}>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route index element={<Login />} />
