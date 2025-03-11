@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "node:path";
 import mkcert from "vite-plugin-mkcert";
+import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -14,7 +15,39 @@ export default defineConfig(({ mode }) => {
     },
 
     base: env.VITE_APP_BASE_URL || "/",
-    plugins: [react(), mkcert({ savePath: "./certs", force: true })],
+    plugins: [
+      react(),
+      mkcert({ savePath: "./certs", force: true }),
+      VitePWA({
+        registerType: "prompt",
+        workbox: {
+          globPatterns: [
+            "**/*.{js,css,html,ico,png,svg}",
+            "locales/**/*.json",
+          ],
+          clientsClaim: true,
+          skipWaiting: true,
+        },
+        manifest: {
+          name: "PWA Vite React App",
+          short_name: "Vite React",
+          description: "PWA Vite React App",
+          theme_color: "#ffffff",
+          icons: [
+            {
+              src: "/vite.svg",
+              sizes: "192x192",
+              type: "image/svg+xml",
+            },
+            {
+              src: "/vite.svg",
+              sizes: "512x512",
+              type: "image/svg+xml",
+            },
+          ],
+        },
+      }),
+    ],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),

@@ -7,12 +7,25 @@ import axios from "axios";
 import { axiosSetup } from "./utils/axiosSetup.ts";
 import { I18nextProvider } from "react-i18next";
 import { i18n } from "./utils/i18n.ts";
+import { registerSW } from "virtual:pwa-register";
 
 import { AppRoutes } from "./routes/AppRoutes.tsx";
 
+const { VITE_APP_ENV, VITE_APP_MODE_MOCK } = import.meta.env;
+
 axiosSetup(axios);
 
-const { VITE_APP_ENV, VITE_APP_MODE_MOCK } = import.meta.env;
+registerSW({
+  onNeedRefresh() {
+    console.log("New content available! please refresh");
+  },
+  onOfflineReady() {
+    console.log("App is ready to work offline.");
+  },
+  onRegisterError(error) {
+    console.error("Service Worker registration failed:", error);
+  },
+});
 
 async function initMSW() {
   if (VITE_APP_ENV === "development" && VITE_APP_MODE_MOCK === "true") {

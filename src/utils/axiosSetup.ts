@@ -17,7 +17,7 @@ const axiosSetup = (axios: Axios) => {
         config.baseURL = VITE_API_AUTH_URL;
       }
 
-      config.timeout = VITE_API_TIMEOUT || 30;
+      config.timeout = VITE_API_TIMEOUT || 10;
       config.headers["Content-Type"] = "application/json";
 
       const token = localStorage.getItem("authToken");

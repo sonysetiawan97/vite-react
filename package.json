@@ -12,7 +12,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "msw": "npx msw init public/ --save"
+    "msw": "npx msw init public/ --save",
+    "test:prod": "pnpm run build && pnpm run preview"
   },
   "dependencies": {
     "@nanostores/react": "^0.8.4",
@@ -44,7 +45,9 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
-    "vitest": "^3.0.4"
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^3.0.4",
+    "workbox-window": "^7.3.0"
   },
   "msw": {
     "workerDirectory": [
