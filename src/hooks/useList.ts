@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchingAll } from "@/services/fetchingAll";
+import { findAll } from "@/services/findAll";
 
 interface UseListProps {
   module: string;
@@ -17,8 +17,9 @@ export const useList = <T>({
   return useQuery({
     queryKey: [module, skip],
     queryFn: async () => {
-      const response = await fetchingAll<T>(
-        `${module}?skip=${skip}&limit=${limit}`
+      const response = await findAll<T>(
+        `${module}`,
+        `skip=${skip}&limit=${limit}`
       );
       return response;
     },

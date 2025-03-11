@@ -1,15 +1,16 @@
 import axios, { type AxiosError } from "axios";
 
-export interface FetchingAllProps<T> {
+export interface FindAllProps<T> {
   data: T[];
   count: number;
 }
 
-export const fetchingAll = async <T>(
-  url: string
-): Promise<FetchingAllProps<T>> => {
+export const findAll = async <T>(
+  url: string,
+  params: string
+): Promise<FindAllProps<T>> => {
   try {
-    const { data } = await axios.get<FetchingAllProps<T>>(url);
+    const { data } = await axios.get<FindAllProps<T>>(`${url}?${params}`);
     return data;
   } catch (error) {
     const { message } = error as unknown as AxiosError;
