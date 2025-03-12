@@ -1,0 +1,56 @@
+body {
+  min-height: 100vh;
+  font-size: 13px;
+}
+
+a {
+  text-decoration: inherit;
+}
+
+.app-wrapper {
+  margin-top: 94px;
+  margin-left: 265px;
+}
+
+.form-serach svg {
+  top: calc(50% - 10px);
+  left: 6px;
+}
+.form-serach input {
+  padding-left: 32px;
+}
+
+/* header */
+.app-header {
+  z-index: 100;
+  position: fixed;
+  left: 265px;
+  right: 0;
+  top: 0;
+}
+.app-header .page-title .page-heading {
+  font-size: 1rem!important;
+}
+
+
+
+/* app-Sidebar */
+.app-sidebar {
+    width: 265px;
+    height: 100vh;
+    background: #f9f9f9;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    padding-top: 20px;
+    box-shadow: 0 0 28px 0 rgba(82, 63, 105, 0.025);
+}
+.app-sidebar .app-sidebar-logo img {
+  max-height: 34px;
+  width: auto;
+}
+.app-sidebar .list-group-item {
+  background-color: transparent
+}

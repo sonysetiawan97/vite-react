@@ -2,6 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+import "./assets/style/style.css"
+import "./assets/style/custom.css"
 
 import axios from "axios";
 import { axiosSetup } from "./utils/axiosSetup.ts";
@@ -47,3 +51,5 @@ initMSW().then(() => {
     </StrictMode>
   );
 });
+
+import "./assets/js/custom.js"
