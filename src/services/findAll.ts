@@ -7,10 +7,10 @@ export interface FindAllProps<T> {
 
 export const findAll = async <T>(
   url: string,
-  params: string
+  params?: Record<string, unknown>
 ): Promise<FindAllProps<T>> => {
   try {
-    const { data } = await axios.get<FindAllProps<T>>(`${url}?${params}`);
+    const { data } = await axios.get<FindAllProps<T>>(url, { params });
     return data;
   } catch (error) {
     const { message } = error as unknown as AxiosError;

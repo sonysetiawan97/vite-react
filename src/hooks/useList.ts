@@ -5,6 +5,7 @@ interface UseListProps {
   module: string;
   skip?: number;
   limit?: number;
+  params?: Record<string, unknown>;
 }
 
 const VITE_PAGE_LIMIT = Number(import.meta.env.VITE_PAGE_LIMIT) || 0;
@@ -15,12 +16,13 @@ export const useList = <T>({
   limit = VITE_PAGE_LIMIT,
 }: UseListProps) => {
   return useQuery({
-    queryKey: [module, skip],
+    queryKey: [module, skip, limit],
     queryFn: async () => {
-      const response = await findAll<T>(
-        `${module}`,
-        `skip=${skip}&limit=${limit}`
-      );
+      const params: Record<string, unknown> = {
+        skip,
+        limit,
+      };
+      const response = await findAll<T>(module, params);
       return response;
     },
     retry: 3,

@@ -7,7 +7,7 @@ export const partialUpdate = async <T>(
   config?: AxiosRequestConfig
 ): Promise<T> => {
   try {
-    const { data } = await axios.put<T>(`${url}/${id}/update`, body, {
+    const { data } = await axios.patch<T>(`${url}/${id}/update`, body, {
       headers: {
         "Content-Type": "application/json",
       },
