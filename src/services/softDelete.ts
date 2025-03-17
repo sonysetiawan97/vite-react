@@ -1,21 +1,8 @@
-import axios, { type AxiosRequestConfig, type AxiosError } from "axios";
+import axios, { type AxiosError } from "axios";
 
-export const update = async <T>(
-  url: string,
-  id: string,
-  config: AxiosRequestConfig
-): Promise<T> => {
+export const softDelete = async <T>(url: string, id: string): Promise<T> => {
   try {
-    const { data } = await axios.put<T>(
-      `${url}/${id}/delete`,
-      {},
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        ...config,
-      }
-    );
+    const { data } = await axios.put<T>(`${url}/${id}/delete`);
     return data;
   } catch (error) {
     const { message } = error as unknown as AxiosError;

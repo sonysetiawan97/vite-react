@@ -1,32 +1,32 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { partialUpdate } from "@services/partialUpdate";
+import { update } from "@services/update";
 import type { AxiosError, AxiosRequestConfig } from "axios";
 
-interface PartialUpdateMutationProps<T> {
+interface UpdateMutationProps<T> {
   url: string;
   id: string;
-  body: Partial<T>;
+  body: T;
   config?: AxiosRequestConfig;
 }
 
-export const usePartialUpdate = <T>(queryKey: string) => {
+export const useUpdate = <T>(queryKey: string[]) => {
   const queryClient = useQueryClient();
-  const mutation = useMutation<T, AxiosError, PartialUpdateMutationProps<T>>({
+  const mutation = useMutation<T, AxiosError, UpdateMutationProps<T>>({
     mutationFn: ({ url, id, body, config }) => {
-      return partialUpdate<T>(url, id, body, config);
+      return update<T>(url, id, body, config);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [queryKey],
+        queryKey: [...queryKey],
       });
     },
     onError: (error) => {
-      console.error("Partial update failed:", error);
+      console.error("Update failed:", error);
     },
   });
 
   return {
-    partialUpdate: mutation.mutateAsync,
+    update: mutation.mutateAsync,
     isLoading: mutation.isPending,
     error: mutation.error,
   };

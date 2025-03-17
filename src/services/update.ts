@@ -4,7 +4,7 @@ export const update = async <T>(
   url: string,
   id: string,
   body: T,
-  config: AxiosRequestConfig
+  config?: AxiosRequestConfig
 ): Promise<T> => {
   try {
     const { data } = await axios.put<T>(`${url}/${id}/update`, body, {
