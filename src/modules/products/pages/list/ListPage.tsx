@@ -1,8 +1,8 @@
 import type { FC } from "react";
-import { Table } from "@/components/Table";
+import { Table } from "@/components/list/Table";
 import type { Product } from "@/modules/products/types/productTypes";
-import type { ColumnConfig } from "@/components/Table";
-import { ActionsDropdown } from "@/components/ActionsDropdown";
+import type { ColumnConfig } from "@/components/list/Table";
+import { Action } from "@/components/list/Action";
 
 interface ListProps {
   data: Product[];
@@ -10,7 +10,7 @@ interface ListProps {
 
 export const List: FC<ListProps> = ({ data }) => {
   const columns: ColumnConfig<Product>[] = [
-    { title: "#", name: "id" },
+    { title: "#", name: "id", rowClassName: "font-weight-bold" },
     {
       title: "Name",
       name: "name",
@@ -21,9 +21,10 @@ export const List: FC<ListProps> = ({ data }) => {
     {
       title: "Actions",
       name: "id",
+      headerClassName: "header-action-list text-center",
       render: (row) => {
         const { id } = row;
-        return <ActionsDropdown id={id} />;
+        return <Action id={id} />;
       },
     },
   ];

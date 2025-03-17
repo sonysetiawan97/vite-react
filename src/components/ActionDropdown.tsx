@@ -4,14 +4,14 @@ import { EditAction } from "@components/actions/EditButton";
 import { DeleteAction } from "@components/actions/DeleteButton";
 import { useTranslation } from "react-i18next";
 
-interface ActionsDropdownProps {
+interface ActionDropdownProps {
   id: string;
   onRead?: (id: string) => void;
   onEdit?: (id: string) => void;
   onDelete?: (id: string) => void;
 }
 
-export const ActionsDropdown: FC<ActionsDropdownProps> = ({
+export const ActionDropdown: FC<ActionDropdownProps> = ({
   id,
   onRead = (id: string) => {
     console.log(`Action read on id: ${id}`);

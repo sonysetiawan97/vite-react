@@ -29,28 +29,31 @@ a {
   top: 0;
 }
 .app-header .page-title .page-heading {
-  font-size: 1rem!important;
+  font-size: 1rem !important;
 }
-
-
 
 /* app-Sidebar */
 .app-sidebar {
-    width: 265px;
-    height: 100vh;
-    background: #f9f9f9;
-    color: white;
-    position: fixed;
-    left: 0;
-    top: 0;
-    transition: 0.3s;
-    padding-top: 20px;
-    box-shadow: 0 0 28px 0 rgba(82, 63, 105, 0.025);
+  width: 265px;
+  height: 100vh;
+  background: #f9f9f9;
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: 0.3s;
+  padding-top: 20px;
+  box-shadow: 0 0 28px 0 rgba(82, 63, 105, 0.025);
 }
 .app-sidebar .app-sidebar-logo img {
   max-height: 34px;
   width: auto;
 }
 .app-sidebar .list-group-item {
-  background-color: transparent
+  background-color: transparent;
+}
+
+.header-action-list {
+  width: 5%;
+  min-width: 50px;
 }
