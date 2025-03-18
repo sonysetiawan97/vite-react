@@ -3,10 +3,12 @@ import react from "@vitejs/plugin-react-swc";
 import path from "node:path";
 import mkcert from "vite-plugin-mkcert";
 import { VitePWA } from "vite-plugin-pwa";
+import fs from "node:fs";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const port: number = Number.parseInt(env.VITE_APP_PORT) || 5173;
+  const isDev = mode === "development";
 
   return {
     define: {
@@ -56,32 +58,30 @@ export default defineConfig(({ mode }) => {
       },
     },
 
-    server: {
-      port,
-      open: true,
-      // proxy: {
-      //   "/api/v1": {
-      //     target: env.VITE_API_BASE_URL || "http://localhost:8000",
-      //     changeOrigin: true,
-      //     rewrite: (path) => path.replace(/^\/api\/v1/, ""),
-      //   },
-      // },
-      https: {
-        cert: path.resolve(__dirname, "certs/cert.pem"),
-        key: path.resolve(__dirname, "certs/dev.pem"),
-      },
-    },
+    server: isDev
+      ? {
+          port,
+          open: true,
+          https: {
+            cert: path.resolve(__dirname, "certs/cert.pem"),
+            key: path.resolve(__dirname, "certs/dev.pem"),
+          },
+        }
+      : undefined,
 
     build: {
       outDir: "dist",
-      sourcemap: mode === "development",
+      sourcemap: isDev,
       rollupOptions: {
         output: {
           manualChunks: {
             vendor: ["react", "react-dom"],
           },
         },
-        external: env.VITE_APP_ENV === "production" ? ["msw"] : [],
+        external:
+          fs.existsSync("node_modules/msw") && env.VITE_APP_ENV === "production"
+            ? ["msw"]
+            : [],
       },
     },
   };

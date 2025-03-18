@@ -1,20 +1,27 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 interface ReadActionProps {
   id: string;
-  onClick: (id: string) => void;
+  onClick?: (id: string, module?: string) => void;
 }
 
 export const ReadAction: FC<ReadActionProps> = ({ id, onClick }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handle = () => {
+    if (onClick) {
+      onClick(id);
+      return;
+    }
+
+    navigate(id);
+  };
 
   return (
-    <button
-      type="button"
-      onClick={() => onClick(id)}
-      className="btn btn-link btn-sm"
-    >
+    <button type="button" onClick={handle} className="btn btn-link btn-sm">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="18px"

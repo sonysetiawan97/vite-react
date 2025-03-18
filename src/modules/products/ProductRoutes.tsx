@@ -3,7 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 
 import { ErrorRoutes } from "../error/ErrorRoutes";
 import { ListWrapper } from "./pages/list/ListWrapper";
-import { AddPage } from "./pages/AddPage";
+import { AddPage } from "./pages/add/AddPage";
 
 const ProductRoutes: FC = () => {
   return (

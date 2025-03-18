@@ -3,18 +3,24 @@ import { useTranslation } from "react-i18next";
 
 interface DeleteActionProps {
   id: string;
-  onClick: (id: string) => void;
+  onClick?: (id: string) => void;
 }
 
 export const DeleteAction: FC<DeleteActionProps> = ({ id, onClick }) => {
   const { t } = useTranslation();
 
+  const handle = () => {
+    if (onClick) {
+      onClick(id);
+      return;
+    }
+
+    // TODO: it will be action delete
+    console.log("on work!");
+  };
+
   return (
-    <button
-      type="button"
-      onClick={() => onClick(id)}
-      className="btn btn-link btn-sm"
-    >
+    <button type="button" onClick={handle} className="btn btn-link btn-sm">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="18px"
