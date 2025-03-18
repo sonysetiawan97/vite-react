@@ -9,8 +9,9 @@ export const ListWrapper: FC = () => {
     skip: 0,
   });
 
+  // TODO: NEED loading pages
   if (isLoading) return <div>Loading products...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  return <List data={data?.data || []} />;
+  return <List data={data?.data || []} isLoading={isLoading} />;
 };

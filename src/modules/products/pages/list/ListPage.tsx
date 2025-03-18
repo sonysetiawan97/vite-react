@@ -1,14 +1,15 @@
 import type { FC } from "react";
-import { Table } from "@/components/list/Table";
 import type { Product } from "@/modules/products/types/productTypes";
-import type { ColumnConfig } from "@/components/list/Table";
 import { Action } from "@/components/list/Action";
+import type { ColumnConfig } from "@/types/ColumnConfig";
+import { ListContainer } from "@/components/list/ListContainer";
 
 interface ListProps {
   data: Product[];
+  isLoading: boolean;
 }
 
-export const List: FC<ListProps> = ({ data }) => {
+export const List: FC<ListProps> = ({ data, isLoading }) => {
   const columns: ColumnConfig<Product>[] = [
     { title: "#", name: "id", rowClassName: "font-weight-bold" },
     {
@@ -29,5 +30,14 @@ export const List: FC<ListProps> = ({ data }) => {
     },
   ];
 
-  return <Table<Product> columns={columns} data={data} className="mb-4" />;
+  return (
+    <ListContainer<Product>
+      columns={columns}
+      data={data}
+      isLoading={isLoading}
+      onSearch={() => {
+        console.log("on work!");
+      }}
+    />
+  );
 };
