@@ -4,6 +4,7 @@
     "action": "Aksi",
     "read": "Baca",
     "edit": "Ubah",
-    "delete": "Hapus"
+    "delete": "Hapus",
+    "create": "Buat"
   }
 }

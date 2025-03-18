@@ -57,3 +57,7 @@ a {
   width: 5%;
   min-width: 50px;
 }
+
+.vertical-align-middle {
+  vertical-align: middle;
+}

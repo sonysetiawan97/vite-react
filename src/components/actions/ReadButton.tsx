@@ -2,12 +2,12 @@ import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-interface ReadActionProps {
+interface ReadButtonProps {
   id: string;
   onClick?: (id: string, module?: string) => void;
 }
 
-export const ReadAction: FC<ReadActionProps> = ({ id, onClick }) => {
+export const ReadButton: FC<ReadButtonProps> = ({ id, onClick }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 

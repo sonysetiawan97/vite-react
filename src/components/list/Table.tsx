@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { CreateButton } from "../actions/CreateButton";
+import clsx from "clsx";
 
 export interface ColumnConfig<T> {
   title: string;
@@ -53,21 +55,7 @@ export const Table = <T extends object>({
             />
           </div>
           <div className="group-btn">
-            {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-            <a href="" className="btn btn-dark">
-              <svg
-                className="pb-1"
-                xmlns="http://www.w3.org/2000/svg"
-                height="20px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#fff"
-              >
-                <title>Create</title>
-                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
-              </svg>{" "}
-              Create
-            </a>
+            <CreateButton />
           </div>
         </div>
         {/* SECTION: List */}
@@ -97,7 +85,10 @@ export const Table = <T extends object>({
                   return (
                     <td
                       key={`${col.title}-${colIndex}`}
-                      className={col.rowClassName}
+                      className={clsx(
+                        "vertical-align-middle",
+                        col.rowClassName
+                      )}
                     >
                       {cell}
                     </td>

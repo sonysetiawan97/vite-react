@@ -1,12 +1,12 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-interface DeleteActionProps {
+interface DeleteButtonProps {
   id: string;
   onClick?: (id: string) => void;
 }
 
-export const DeleteAction: FC<DeleteActionProps> = ({ id, onClick }) => {
+export const DeleteButton: FC<DeleteButtonProps> = ({ id, onClick }) => {
   const { t } = useTranslation();
 
   const handle = () => {

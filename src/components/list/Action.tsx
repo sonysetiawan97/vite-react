@@ -1,7 +1,7 @@
 import type { FC } from "react";
-import { ReadAction } from "@components/actions/ReadButton";
-import { EditAction } from "@components/actions/EditButton";
-import { DeleteAction } from "@components/actions/DeleteButton";
+import { ReadButton } from "@components/actions/ReadButton";
+import { EditButton } from "@components/actions/EditButton";
+import { DeleteButton } from "@components/actions/DeleteButton";
 
 interface ActionProps {
   id: string;
@@ -13,9 +13,9 @@ interface ActionProps {
 export const Action: FC<ActionProps> = ({ id, onRead, onEdit, onDelete }) => {
   return (
     <div className="d-flex gap-1">
-      <ReadAction id={id} onClick={onRead} />
-      <EditAction id={id} onClick={onEdit} />
-      <DeleteAction id={id} onClick={onDelete} />
+      <ReadButton id={id} onClick={onRead} />
+      <EditButton id={id} onClick={onEdit} />
+      <DeleteButton id={id} onClick={onDelete} />
     </div>
   );
 };

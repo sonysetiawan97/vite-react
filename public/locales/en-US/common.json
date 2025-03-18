@@ -4,6 +4,7 @@
     "action": "Action",
     "read": "Read",
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "create": "Create"
   }
 }
