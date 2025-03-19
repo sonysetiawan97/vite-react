@@ -61,3 +61,23 @@ a {
 .vertical-align-middle {
   vertical-align: middle;
 }
+
+/* page 404 */
+.page404 {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 999;
+}
+
+.page404 .img {
+  background-image: url('../images/404.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  width: 50vw;
+}
