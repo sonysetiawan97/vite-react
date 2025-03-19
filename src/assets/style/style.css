@@ -74,13 +74,14 @@ a {
 }
 
 .page404 .img {
-  background-image: url('../images/404.svg');
+  background-image: url("../images/404.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   height: 50vh;
   width: 50vw;
 }
+
 .button-link {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
