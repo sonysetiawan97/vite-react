@@ -14,18 +14,18 @@ export const useList = <T>({
   module,
   skip = 0,
   limit = VITE_PAGE_LIMIT,
+  params,
 }: UseListProps) => {
   return useQuery({
-    queryKey: [module, skip, limit],
+    queryKey: [module, skip, limit, params],
     queryFn: async () => {
-      const params: Record<string, unknown> = {
+      console.log(module, skip, limit, params);
+      const response = await findAll<T>(module, {
         skip,
         limit,
-      };
-      const response = await findAll<T>(module, params);
+        ...params,
+      });
       return response;
     },
-    retry: 3,
-    staleTime: 1000 * 60 * 0.5,
   });
 };

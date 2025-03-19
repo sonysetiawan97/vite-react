@@ -55,6 +55,7 @@ export default defineConfig(({ mode }) => {
         "@stores": path.resolve(__dirname, "./src/stores"),
         "@services": path.resolve(__dirname, "./src/services"),
         "@modules": path.resolve(__dirname, "./src/modules"),
+        "@context": path.resolve(__dirname, "./src/contexts"),
       },
     },
 

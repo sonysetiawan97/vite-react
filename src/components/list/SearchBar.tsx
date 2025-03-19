@@ -1,37 +1,32 @@
 import { type FC, useState, useEffect } from "react";
+import { useSearch } from "@/hooks/useSearch";
 
 interface SearchBarProps {
   placeholder?: string;
-  onSearch: (query: string) => void;
   debounceMs?: number;
 }
 
 export const SearchBar: FC<SearchBarProps> = ({
   placeholder = "Search...",
-  onSearch,
   debounceMs = 500,
 }) => {
-  const [query, setQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const { query, setQuery } = useSearch();
+  const [localQuery, setLocalQuery] = useState(query);
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedQuery(query);
+      setQuery(localQuery);
     }, debounceMs);
 
     return () => clearTimeout(handler);
-  }, [query, debounceMs]);
-
-  useEffect(() => {
-    onSearch(debouncedQuery);
-  }, [debouncedQuery, onSearch]);
+  }, [localQuery, debounceMs, setQuery]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    setLocalQuery(e.target.value);
   };
 
   const clearSearch = () => {
-    setQuery("");
+    setLocalQuery("");
   };
 
   return (
@@ -51,10 +46,10 @@ export const SearchBar: FC<SearchBarProps> = ({
         type="search"
         className="form-control border-dark ps-5"
         placeholder={placeholder}
-        value={query}
+        value={localQuery}
         onChange={handleChange}
       />
-      {query && (
+      {localQuery && (
         <button
           type="button"
           className="btn btn-link position-absolute end-0 me-2"

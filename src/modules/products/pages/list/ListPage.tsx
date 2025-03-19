@@ -35,9 +35,6 @@ export const List: FC<ListProps> = ({ data, isLoading }) => {
       columns={columns}
       data={data}
       isLoading={isLoading}
-      onSearch={() => {
-        console.log("on work!");
-      }}
     />
   );
 };

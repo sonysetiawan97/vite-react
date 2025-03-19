@@ -16,7 +16,6 @@ export const CreateButton: FC<CreateButtonProps> = ({ onClick }) => {
       return;
     }
 
-    console.log("on work!");
     navigate("/create");
   };
 
