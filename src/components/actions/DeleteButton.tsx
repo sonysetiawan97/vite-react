@@ -22,6 +22,7 @@ export const DeleteButton: FC<DeleteButtonProps> = ({ id, onClick }) => {
   return (
     <button type="button" onClick={handle} className="btn btn-link btn-sm">
       <svg
+        className="d-flex"
         xmlns="http://www.w3.org/2000/svg"
         height="18px"
         viewBox="0 -960 960 960"
