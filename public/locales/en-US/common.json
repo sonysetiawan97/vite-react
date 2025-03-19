@@ -6,5 +6,12 @@
     "edit": "Edit",
     "delete": "Delete",
     "create": "Create"
+  },
+  "error": {
+    "404_not_found": {
+      "title": "Oops!",
+      "sub_title": "Page Not Found",
+      "button": "Back To Dashboard"
+    }
   }
 }

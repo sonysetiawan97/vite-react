@@ -6,5 +6,12 @@
     "edit": "Ubah",
     "delete": "Hapus",
     "create": "Buat"
+  },
+  "error": {
+    "404_not_found": {
+      "title": "Oops!",
+      "sub_title": "Halaman Tidak Ditemukan",
+      "button": "Kembali ke dashboard"
+    }
   }
 }
