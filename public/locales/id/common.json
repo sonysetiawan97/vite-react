@@ -13,5 +13,22 @@
       "sub_title": "Halaman Tidak Ditemukan",
       "button": "Kembali ke dashboard"
     }
+  },
+  "sidebar": {
+    "master": {
+      "title": "MASTER",
+      "menu": {
+        "dashboard": "dashboard",
+        "products": "Produk",
+        "examples": "Contoh"
+      }
+    },
+    "base": {
+      "title": "BASE",
+      "menu": {
+        "setting": "Pengaturan",
+        "themes": "Temas"
+      }
+    }
   }
 }

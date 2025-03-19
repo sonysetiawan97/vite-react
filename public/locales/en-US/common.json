@@ -13,5 +13,22 @@
       "sub_title": "Page Not Found",
       "button": "Back To Dashboard"
     }
+  },
+  "sidebar": {
+    "master": {
+      "title": "MASTER",
+      "menu": {
+        "dashboard": "dashboard",
+        "products": "products",
+        "examples": "examples"
+      }
+    },
+    "base": {
+      "title": "BASE",
+      "menu": {
+        "setting": "Setting",
+        "themes": "Themes"
+      }
+    }
   }
 }
