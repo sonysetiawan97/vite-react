@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
 import type { ColumnConfig } from "@/types/ColumnConfig";
+import { useSnackbar } from "notistack";
+import { LoadingPage } from "../LoadingPage";
 
 export interface TableProps<T> {
   columns: ColumnConfig<T>[];
@@ -18,17 +20,16 @@ export const Table = <T,>({
   error = null,
   renderEmpty = "No data available",
 }: TableProps<T>) => {
-  // TODO: Need loading page
-  if (isLoading) return <div>Loading...</div>;
-  // TODO: Need error message snackbar
-  if (error) return <div>Error: {error.message}</div>;
+  const { enqueueSnackbar } = useSnackbar();
+
+  if (isLoading) return <LoadingPage />;
+  if (error) return enqueueSnackbar(error.message);
   if (!data || data.length === 0) return <div>{renderEmpty}</div>;
 
   return (
     <table className="table teble-striped table-hover">
       <thead>
         <tr>
-          {" "}
           {columns.map((col, index) => (
             <th
               key={`${col.title}-${index}`}

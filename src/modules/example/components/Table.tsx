@@ -1,5 +1,5 @@
 import { useState, type FC } from "react";
-import { Loading } from "@/components/Loading";
+import { LoadingPage } from "@/components/LoadingPage";
 import { Pagination } from "@/components/Pagination";
 import { useList } from "@/hooks/useList";
 import type { Example } from "../types/exampleTypes";
@@ -31,7 +31,7 @@ export const Table: FC = () => {
     ));
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingPage />;
   if (error instanceof Error) return <p>Error: {error.message}</p>;
 
   return (

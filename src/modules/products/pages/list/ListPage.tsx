@@ -3,13 +3,16 @@ import type { Product } from "@/modules/products/types/productTypes";
 import { Action } from "@/components/list/Action";
 import type { ColumnConfig } from "@/types/ColumnConfig";
 import { ListContainer } from "@/components/list/ListContainer";
+import { usePagination } from "@/hooks/usePagination";
 
 interface ListProps {
   data: Product[];
+  count: number;
   isLoading: boolean;
 }
 
-export const List: FC<ListProps> = ({ data, isLoading }) => {
+export const List: FC<ListProps> = ({ data, count, isLoading }) => {
+  const { skip, limit, setSkip } = usePagination();
   const columns: ColumnConfig<Product>[] = [
     { title: "#", name: "id", rowClassName: "font-weight-bold" },
     {
@@ -35,6 +38,10 @@ export const List: FC<ListProps> = ({ data, isLoading }) => {
       columns={columns}
       data={data}
       isLoading={isLoading}
+      count={count}
+      skip={skip}
+      limit={limit}
+      onPageChange={setSkip}
     />
   );
 };
