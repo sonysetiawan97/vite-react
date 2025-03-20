@@ -2,7 +2,7 @@ import type { ColumnConfig } from "@/types/ColumnConfig";
 import { Table } from "./Table";
 import { ActionBar } from "./ActionBar";
 import { EmptyData } from "../errors/EmptyData";
-import { Pagination } from "../Pagination";
+import { Pagination } from "./Pagination";
 
 interface ListContainerProps<T> {
   data: T[];

@@ -30,5 +30,11 @@
         "themes": "Temas"
       }
     }
+  },
+  "pagination": {
+    "first": "awal",
+    "prev": "sebelum",
+    "next": "sesudah",
+    "last": "akhir"
   }
 }

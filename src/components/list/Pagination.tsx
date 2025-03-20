@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 const { VITE_PAGE_LIMIT } = import.meta.env;
 
@@ -15,6 +16,7 @@ export const Pagination: FC<PaginationProps> = ({
   limit = VITE_PAGE_LIMIT || 10,
   onPageChange,
 }) => {
+  const { t } = useTranslation();
   const maxVisiblePages = 5;
   const totalPages = Math.ceil(count / limit);
   const currentPage = Math.floor(skip / limit) + 1;
@@ -38,23 +40,23 @@ export const Pagination: FC<PaginationProps> = ({
   }
 
   return (
-    <div className="flex items-center gap-2 mt-4">
+    <div className="d-flex align-items-center gap-2 mt-4">
       <button
         type="button"
         onClick={() => handlePageChange(1)}
         disabled={currentPage === 1}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className="btn btn-outline-primary"
       >
-        First
+        {t('pagination.first')}
       </button>
 
       <button
         type="button"
         onClick={() => onPageChange(skip - limit)}
         disabled={skip <= 0}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className="btn btn-outline-primary"
       >
-        Prev
+        {t('pagination.prev')}
       </button>
 
       {pageNumbers.map((page) => (
@@ -62,10 +64,10 @@ export const Pagination: FC<PaginationProps> = ({
           type="button"
           key={page}
           onClick={() => handlePageChange(page)}
-          className={`px-3 py-1 border rounded ${
+          className={`btn ${
             page === currentPage
-              ? "bg-blue-600 text-white font-bold shadow-md"
-              : "bg-white hover:bg-gray-200"
+              ? "btn-primary fw-bold shadow-sm"
+              : "btn-outline-secondary"
           }`}
         >
           {page}
@@ -76,18 +78,18 @@ export const Pagination: FC<PaginationProps> = ({
         type="button"
         onClick={() => onPageChange(skip + limit)}
         disabled={skip + limit >= count}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className="btn btn-outline-primary"
       >
-        Next
+        {t('pagination.next')}
       </button>
 
       <button
         type="button"
         onClick={() => handlePageChange(totalPages)}
         disabled={currentPage === totalPages}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className="btn btn-outline-primary"
       >
-        Last
+        {t('pagination.last')}
       </button>
     </div>
   );

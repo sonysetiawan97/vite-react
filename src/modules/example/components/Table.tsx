@@ -1,6 +1,6 @@
 import { useState, type FC } from "react";
 import { LoadingPage } from "@/components/LoadingPage";
-import { Pagination } from "@/components/Pagination";
+import { Pagination } from "@/components/list/Pagination";
 import { useList } from "@/hooks/useList";
 import type { Example } from "../types/exampleTypes";
 import { EmptyData } from "@/components/errors/EmptyData";

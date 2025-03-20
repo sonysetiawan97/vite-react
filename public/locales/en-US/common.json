@@ -30,5 +30,11 @@
         "themes": "Themes"
       }
     }
+  },
+  "pagination": {
+    "first": "first",
+    "prev": "prev",
+    "next": "next",
+    "last": "last"
   }
 }
