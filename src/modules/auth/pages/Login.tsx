@@ -4,6 +4,7 @@ import { login } from "../services/loginService";
 import type { LoginRequest } from "../types/LoginRequest";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSnackbar } from "notistack";
 
 export const Login: React.FC = () => {
   const { t } = useTranslation();
@@ -11,6 +12,7 @@ export const Login: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,10 +20,15 @@ export const Login: React.FC = () => {
 
     try {
       await login(request);
+      enqueueSnackbar(t("login.notification.success"), {
+        variant: "info",
+      });
       navigate("/products");
-    } catch (err) {
-      setError("Invalid username or password");
-      console.error("err:", err);
+    } catch {
+      enqueueSnackbar(t("login.notification.failed"), {
+        variant: "error",
+      });
+      setError(t("login.notification.failed"));
     }
   };
 

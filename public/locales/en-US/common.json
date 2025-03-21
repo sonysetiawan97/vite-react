@@ -8,6 +8,10 @@
       "username": "Username",
       "password": "Password",
       "button": "Login"
+    },
+    "notification": {
+      "success": "Login Success",
+      "failed": "Invalid username or password"
     }
   },
   "header": {
