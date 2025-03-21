@@ -5,7 +5,7 @@ import { ErrorRoutes } from "../error/ErrorRoutes";
 import { ListWrapper } from "./pages/list/ListWrapper";
 import { AddPage } from "./pages/add/AddPage";
 
-const ProductRoutes: FC = () => {
+const PrivateRoutes: FC = () => {
   return (
     <Routes>
       <Route element={<Outlet />}>
@@ -17,4 +17,4 @@ const ProductRoutes: FC = () => {
   );
 };
 
-export { ProductRoutes };
+export { PrivateRoutes };

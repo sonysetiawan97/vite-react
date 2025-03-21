@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import type { Product } from "@modules/products/types/productTypes";
+import type { Product } from "@/modules/products/types/Model";
 
 const data: Product[] = [
   { id: "1", name: "Java" },

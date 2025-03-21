@@ -7,8 +7,8 @@ import { UserRoutes } from "../modules/user/UserRoutes";
 import { ErrorRoutes } from "../modules/error/ErrorRoutes";
 import { Dashboard } from "../components/Dashboard";
 
-import { ProductRoutes } from "../modules/products/ProductRoutes";
-import { ExampleRoutes } from "../modules/example/ExampleRoutes";
+import { PrivateRoutes as ProductRoutes } from "../modules/products/PrivateRoutes";
+import { PrivateRoutes as ExampleRoutes  } from "../modules/examples/PrivateRoutes";
 
 const PrivateRoutes: FC = () => {
   const { isAuthenticated } = useAuth();
