@@ -1,10 +1,10 @@
 import type { FC } from "react";
 import { List } from "./ListPage";
-import { useList } from "@/hooks/useList";
+import { useList } from "@hooks/list/useList";
 import { type Model, moduleName } from "../../types/Model";
-import { useSearch } from "@/hooks/useSearch";
+import { useSearch } from "@hooks/list/useSearch";
 import { LoadingPage } from "@/components/loadings/LoadingPage";
-import { usePagination } from "@/hooks/usePagination";
+import { usePagination } from "@hooks/list/usePagination";
 
 export const ListWrapper: FC = () => {
   const { skip, limit } = usePagination();

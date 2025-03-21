@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import PageTitle from "./PageTitle";
+import PageHeader from "./PageHeader";
 import Navbar from "./Navbar";
 
 const Header: FC = () => {
@@ -40,12 +40,13 @@ const Header: FC = () => {
           </a>
         </div>
         {/* end::Mobile logo */}
+
         {/* begin::Header wrapper */}
         <div
           className="d-flex align-items-stretch justify-content-between flex-lg-grow-1 align-items-center"
           id="kt_app_header_wrapper"
         >
-          <PageTitle />
+          <PageHeader />
           <Navbar />
         </div>
         {/* end::Header wrapper */}

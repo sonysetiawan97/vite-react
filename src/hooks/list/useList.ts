@@ -19,7 +19,6 @@ export const useList = <T>({
   return useQuery({
     queryKey: [module, skip, limit, params],
     queryFn: async () => {
-      console.log(module, skip, limit, params);
       const response = await findAll<T>(module, {
         skip,
         limit,

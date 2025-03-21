@@ -1,13 +1,18 @@
-import { type FC, lazy, Suspense } from "react";
+import { type FC, lazy, Suspense, useEffect } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
-
 import { ListWrapper } from "./pages/list/ListWrapper";
 import { AddPage } from "./pages/add/AddPage";
 import { LoadingPage } from "@components/loadings/LoadingPage";
+import { setPageTitle } from "@stores/PageHeader";
+import { moduleName } from "./types/Model";
 
 const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
 
 const PrivateRoutes: FC = () => {
+  useEffect(() => {
+    setPageTitle(moduleName);
+  }, []);
+
   return (
     <Suspense fallback={<LoadingPage />}>
       <Routes>

@@ -3,7 +3,7 @@ import type { Model } from "../../types/Model";
 import { Action } from "@/components/list/Action";
 import type { ColumnConfig } from "@/types/ColumnConfig";
 import { ListContainer } from "@/components/list/ListContainer";
-import { usePagination } from "@/hooks/usePagination";
+import { usePagination } from "@hooks/list/usePagination";
 
 interface ListProps {
   data: Model[];
