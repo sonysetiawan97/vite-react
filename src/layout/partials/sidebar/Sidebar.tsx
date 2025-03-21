@@ -9,11 +9,12 @@ const Sidebar: FC = () => {
 
   return (
     <div className="app-sidebar d-flex flex-column">
-      <div className="app-sidebar-logo px-3 mb-2">
+      <div className="app-sidebar-logo px-4 mb-2">
         <img alt="Logo" src={Logo} width={80} />
       </div>
       <div className="list-group list-group-flush">
         <SidebarMenuTitle title={t("sidebar.master.title")} />
+
         <SidebarMenuItem
           url="/dashboard"
           title={t("sidebar.master.menu.dashboard")}

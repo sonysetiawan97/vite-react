@@ -5,7 +5,9 @@
     "read": "Read",
     "edit": "Edit",
     "delete": "Delete",
-    "create": "Create"
+    "create": "Create",
+    "submit": "Submit",
+    "cancel": "Cancel"
   },
   "error": {
     "404_not_found": {

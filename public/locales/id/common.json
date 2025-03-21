@@ -5,7 +5,9 @@
     "read": "Baca",
     "edit": "Ubah",
     "delete": "Hapus",
-    "create": "Buat"
+    "create": "Buat",
+    "submit": "Kirim",
+    "cancel": "Batal"
   },
   "error": {
     "404_not_found": {

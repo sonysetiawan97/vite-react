@@ -6,8 +6,8 @@ export const CreateButton: FC = () => {
   const { t } = useTranslation();
   return (
     <Link
-      to={"create"}
-      className="btn btn-dark d-flex align-items-center gap-2"
+      to={"add"}
+      className="btn btn-dark w-auto d-flex align-items-center gap-2"
     >
       <svg
         className="d-flex"

@@ -59,7 +59,7 @@ export const Dashboard: FC = () => {
               <td>@mdo</td>
               <td>
                 <div className="d-flex gap-1">
-                  <a href="" className="btn btn-link btn-sm">
+                  <a href="products/read" className="btn btn-link btn-sm">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="18px"
