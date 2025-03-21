@@ -18,10 +18,32 @@ const Sidebar: FC = () => {
         <SidebarMenuItem
           url="/dashboard"
           title={t("sidebar.master.menu.dashboard")}
+          icon={
+            <svg
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#1f1f1f"
+            >
+              <title>menu</title>
+              <path d="M140-520v-300h300v300H140Zm0 380v-300h300v300H140Zm380-380v-300h300v300H520Zm0 380v-300h300v300H520ZM200-580h180v-180H200v180Zm380 0h180v-180H580v180Zm0 380h180v-180H580v180Zm-380 0h180v-180H200v180Zm380-380Zm0 200Zm-200 0Zm0-200Z" />
+            </svg>
+          }
         />
         <SidebarMenuItem
           url="/products"
           title={t("sidebar.master.menu.products")}
+          icon={
+            <svg
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#1f1f1f"
+            >
+              <title>menu</title>
+              <path d="M140-520v-300h300v300H140Zm0 380v-300h300v300H140Zm380-380v-300h300v300H520Zm0 380v-300h300v300H520ZM200-580h180v-180H200v180Zm380 0h180v-180H580v180Zm0 380h180v-180H580v180Zm-380 0h180v-180H200v180Zm380-380Zm0 200Zm-200 0Zm0-200Z" />
+            </svg>
+          }
         />
         <SidebarMenuItem
           url="/examples"
