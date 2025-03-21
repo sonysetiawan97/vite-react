@@ -1,10 +1,10 @@
 import { useStore } from "@nanostores/react";
 import type { FC } from "react";
-import { pageHeader } from "@stores/PageHeader";
+import { pageHeaderStore } from "@stores/PageHeaderStore";
 import useCapitalize from "@hooks/useCapitalize";
 
 export const PageTitle: FC = () => {
-  const { title } = useStore(pageHeader);
+  const { title } = useStore(pageHeaderStore);
   const { capitalizeFirstLetterWords } = useCapitalize();
 
   return (

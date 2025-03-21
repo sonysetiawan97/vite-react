@@ -1,10 +1,11 @@
-import type { FC } from "react";
+import { useEffect, type FC } from "react";
 import { List } from "./ListPage";
 import { useList } from "@hooks/list/useList";
 import { type Model, moduleName } from "../../types/Model";
 import { useSearch } from "@hooks/list/useSearch";
 import { LoadingPage } from "@/components/loadings/LoadingPage";
 import { usePagination } from "@hooks/list/usePagination";
+import { setBreadcrumbs } from "@stores/BreadcrumbStore";
 
 export const ListWrapper: FC = () => {
   const { skip, limit } = usePagination();
@@ -17,6 +18,13 @@ export const ListWrapper: FC = () => {
       search: query,
     },
   });
+
+  useEffect(() => {
+    setBreadcrumbs([
+      { label: "Home", path: "/" },
+      { label: "Products", path: `/${moduleName}` },
+    ]);
+  }, []);
 
   if (isLoading) return <LoadingPage />;
   if (error) return <div>Error: {error.message}</div>;
