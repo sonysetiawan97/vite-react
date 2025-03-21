@@ -11,7 +11,7 @@
     "404_not_found": {
       "title": "Oops!",
       "sub_title": "Halaman Tidak Ditemukan",
-      "button": "Kembali ke dashboard"
+      "button": "Kembali"
     }
   },
   "sidebar": {

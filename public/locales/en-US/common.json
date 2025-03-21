@@ -11,7 +11,7 @@
     "404_not_found": {
       "title": "Oops!",
       "sub_title": "Page Not Found",
-      "button": "Back To Dashboard"
+      "button": "Back"
     }
   },
   "sidebar": {

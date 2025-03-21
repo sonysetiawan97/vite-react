@@ -2,7 +2,7 @@ import axios, { type AxiosError } from 'axios';
 import type { AuthResponse } from '../types/AuthResponse';
 import type { LoginRequest } from '../types/LoginRequest';
 import { setAccessToken } from '../stores/authStores';
-import { setUser } from '../../user/stores/userStores';
+import { setUser } from '../../users/stores/userStores';
 
 export const login = async (request: LoginRequest): Promise<AuthResponse> => {
   try {

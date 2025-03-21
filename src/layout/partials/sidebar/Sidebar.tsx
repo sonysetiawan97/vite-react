@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import Logo from "../../../assets/images/logo-blue.png";
 import { useTranslation } from "react-i18next";
-import { SidebarMenuItem } from "@/components/menu/SidebarMenuItem";
-import { SidebarMenuTitle } from "@/components/menu/SidebarMenuTitle";
+import { SidebarMenuItem } from "@components/menu/SidebarMenuItem";
+import { SidebarMenuTitle } from "@components/menu/SidebarMenuTitle";
 
 const Sidebar: FC = () => {
   const { t } = useTranslation();

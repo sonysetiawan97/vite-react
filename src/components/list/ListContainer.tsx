@@ -1,4 +1,4 @@
-import type { ColumnConfig } from "@/types/ColumnConfig";
+import type { ColumnConfig } from "@types/ColumnConfig";
 import { Table } from "./Table";
 import { ActionBar } from "./ActionBar";
 import { EmptyData } from "../errors/EmptyData";

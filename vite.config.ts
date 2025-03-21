@@ -56,6 +56,7 @@ export default defineConfig(({ mode }) => {
         "@services": path.resolve(__dirname, "./src/services"),
         "@modules": path.resolve(__dirname, "./src/modules"),
         "@context": path.resolve(__dirname, "./src/contexts"),
+        "@types": path.resolve(__dirname, "./src/types"),
       },
     },
 

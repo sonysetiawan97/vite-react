@@ -1,8 +1,8 @@
 import { type FC, lazy, Suspense } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
-
-import { ListWrapper } from "./pages/list/ListWrapper";
-import { AddPage } from "./pages/add/AddPage";
+import { Route, Routes } from "react-router-dom";
+import { AuthLayout } from "../../layout/AuthLayout";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 import { LoadingPage } from "@components/loadings/LoadingPage";
 
 const ErrorRoutes = lazy(() => import("@modules/errors/PrivateRoutes"));
@@ -11,9 +11,11 @@ const PrivateRoutes: FC = () => {
   return (
     <Suspense fallback={<LoadingPage />}>
       <Routes>
-        <Route element={<Outlet />}>
-          <Route index element={<ListWrapper />} />
-          <Route path="/add" element={<AddPage />} />
+        {/* TODO: Create Auth Layout */}
+        <Route element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route index element={<Login />} />
         </Route>
         <Route path="*" element={<ErrorRoutes />} />
       </Routes>

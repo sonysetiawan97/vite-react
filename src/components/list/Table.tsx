@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 import type { ColumnConfig } from "@/types/ColumnConfig";
 import { useSnackbar } from "notistack";
-import { LoadingPage } from "../LoadingPage";
+import { LoadingPage } from "@components/loadings/LoadingPage";
 
 export interface TableProps<T> {
   columns: ColumnConfig<T>[];

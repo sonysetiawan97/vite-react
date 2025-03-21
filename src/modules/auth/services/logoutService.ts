@@ -1,4 +1,4 @@
-import { clearUser } from '../../user/stores/userStores';
+import { clearUser } from '../../users/stores/userStores';
 import { clearAccessToken } from '../stores/authStores';
 
 export const logout = () => {

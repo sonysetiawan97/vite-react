@@ -23,12 +23,13 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@*": ["src/*"],
       "@modules/*": ["src/modules/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@stores/*": ["src/stores/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@types/*": ["src/types/*"],
     },
     "types": ["vite-plugin-pwa/info.d.ts", "vite-plugin-pwa/client.d.ts"]
   },

@@ -3,7 +3,7 @@ import { List } from "./ListPage";
 import { useList } from "@/hooks/useList";
 import { type Model, moduleName } from "../../types/Model";
 import { useSearch } from "@/hooks/useSearch";
-import { LoadingPage } from "@/components/LoadingPage";
+import { LoadingPage } from "@/components/loadings/LoadingPage";
 import { usePagination } from "@/hooks/usePagination";
 
 export const ListWrapper: FC = () => {

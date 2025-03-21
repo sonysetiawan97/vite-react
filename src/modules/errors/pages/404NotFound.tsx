@@ -9,12 +9,20 @@ const NotFound: FC = () => {
     <div className="page404">
       <div className="d-flex flex-column justify-content-between align-items-center h-100 py-5">
         <div className="text-center">
-          <h1 className="display-2 mb-0">Oops!</h1>
-          <h5 className="text-muted">Page Not Found</h5>
+          <h1 className="display-2 mb-0">{t("error.404_not_found.title")}</h1>
+          <h5 className="text-muted">{t("error.404_not_found.sub_title")}</h5>
         </div>
         <div className="img" />
 
-        <Link to={"/dashboard"}>{t("error.404_not_found.button")}</Link>
+        <Link
+          to="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.back();
+          }}
+        >
+          {t("error.404_not_found.button")}
+        </Link>
       </div>
     </div>
   );

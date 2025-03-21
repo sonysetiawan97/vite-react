@@ -1,20 +1,24 @@
-import type { FC } from "react";
+import { lazy, Suspense, type FC } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 
-import { ErrorRoutes } from "../error/ErrorRoutes";
 import { ListWrapper } from "./pages/list/ListWrapper";
 import { AddPage } from "./pages/add/AddPage";
+import { LoadingPage } from "@components/loadings/LoadingPage";
+
+const ErrorRoutes = lazy(() => import("@modules/errors/PrivateRoutes"));
 
 const PrivateRoutes: FC = () => {
   return (
-    <Routes>
-      <Route element={<Outlet />}>
-        <Route index element={<ListWrapper />} />
-        <Route path="/add" element={<AddPage />} />
-      </Route>
-      <Route path="*" element={<ErrorRoutes />} />
-    </Routes>
+    <Suspense fallback={<LoadingPage />}>
+      <Routes>
+        <Route element={<Outlet />}>
+          <Route index element={<ListWrapper />} />
+          <Route path="/add" element={<AddPage />} />
+        </Route>
+        <Route path="*" element={<ErrorRoutes />} />
+      </Routes>
+    </Suspense>
   );
 };
 
-export { PrivateRoutes };
+export default PrivateRoutes;

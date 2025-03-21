@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { findAll } from "@/services/findAll";
+import { findAll } from "@services/findAll";
 
 interface UseListProps {
   module: string;
