@@ -5,7 +5,7 @@ import { ListWrapper } from "./pages/list/ListWrapper";
 import { AddPage } from "./pages/add/AddPage";
 import { LoadingPage } from "@components/loadings/LoadingPage";
 
-const ErrorRoutes = lazy(() => import("@modules/errors/PrivateRoutes"));
+const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
 
 const PrivateRoutes: FC = () => {
   return (

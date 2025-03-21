@@ -5,7 +5,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { LoadingPage } from "@components/loadings/LoadingPage";
 
-const ErrorRoutes = lazy(() => import("@modules/errors/PrivateRoutes"));
+const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
 
 const PrivateRoutes: FC = () => {
   return (

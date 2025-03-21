@@ -9,8 +9,8 @@ const NotFound: FC = () => {
     <div className="page404">
       <div className="d-flex flex-column justify-content-between align-items-center h-100 py-5">
         <div className="text-center">
-          <h1 className="display-2 mb-0">{t("error.404_not_found.title")}</h1>
-          <h5 className="text-muted">{t("error.404_not_found.sub_title")}</h5>
+          <h1 className="display-2 mb-0">{t("errors.404_not_found.title")}</h1>
+          <h5 className="text-muted">{t("errors.404_not_found.sub_title")}</h5>
         </div>
         <div className="img" />
 
@@ -21,7 +21,7 @@ const NotFound: FC = () => {
             window.history.back();
           }}
         >
-          {t("error.404_not_found.button")}
+          {t("errors.404_not_found.button")}
         </Link>
       </div>
     </div>

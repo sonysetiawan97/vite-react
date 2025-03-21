@@ -1,17 +1,22 @@
-import { useStore } from '@nanostores/react';
-import { authStores } from '@modules/auth/stores/authStores';
-import { userStores } from '@modules/users/stores/userStores';
+import { useStore } from "@nanostores/react";
+import { authStores } from "@modules/auth/stores/authStores";
+import { userStores } from "@modules/users/stores/userStores";
+import { logout as logoutUser } from "@modules/auth/services/logoutService";
+
+const logout = () => {
+  logoutUser();
+  window.location.href = "/auth/login";
+};
 
 const useAuth = () => {
-  const authState = useStore(authStores);
-  const userState = useStore(userStores);
+  const auth = useStore(authStores);
+  const user = useStore(userStores);
 
   return {
-    ...authState,
-    user: {
-      userState,
-    },
+    ...auth,
+    user,
+    logout,
   };
 };
 
-export { useAuth };
+export { useAuth, logout };

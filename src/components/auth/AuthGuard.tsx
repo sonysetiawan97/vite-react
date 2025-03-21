@@ -1,12 +1,21 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useAuth } from "@hooks/useAuth";
+import { LoadingAuthPage } from "@components/loadings/LoadingAuthPage";
 
 const AuthGuard = () => {
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const [checkingAuth, setCheckingAuth] = useState(true);
 
-  if (!isAuthenticated) {
-    return <Navigate to="/auth/login" />;
-  }
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/403", { replace: true });
+    }
+    setCheckingAuth(false);
+  }, [isAuthenticated, navigate]);
+
+  if (checkingAuth) return <LoadingAuthPage />;
 
   return <Outlet />;
 };

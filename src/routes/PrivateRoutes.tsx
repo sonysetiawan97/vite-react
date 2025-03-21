@@ -5,7 +5,7 @@ import { MasterLayout } from "../layout/MasterLayout";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 import { LoadingAuthPage } from "@/components/loadings/LoadingAuthPage";
 
-const ErrorRoutes = lazy(() => import("@modules/errors/PrivateRoutes"));
+const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
 const Dashboard = lazy(() => import("@modules/dashboard/dashboard"));
 const UserRoutes = lazy(() => import("@modules/users/PrivateRoutes"));
 const ProductRoutes = lazy(() => import("@modules/products/PrivateRoutes"));

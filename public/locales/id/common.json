@@ -1,5 +1,15 @@
 {
   "language": "Bahasa",
+  "login": {
+    "title": "Fast, Efficient and Productive",
+    "description": "Fast, Efficient, and Productive workflows are essential in today’s competitive business landscape, enabling teams to meet tight deadlines, minimize costs, and maximize output without sacrificing quality, all while maintaining a focus on innovation and customer satisfaction to drive long-term success.",
+    "form": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "button": "Login"
+    }
+  },
   "button": {
     "action": "Aksi",
     "read": "Baca",

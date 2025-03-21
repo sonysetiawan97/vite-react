@@ -1,5 +1,24 @@
 {
   "language": "Language",
+  "login": {
+    "title": "Fast, Efficient and Productive",
+    "description": "Fast, Efficient, and Productive workflows are essential in today’s competitive business landscape, enabling teams to meet tight deadlines, minimize costs, and maximize output without sacrificing quality, all while maintaining a focus on innovation and customer satisfaction to drive long-term success.",
+    "form": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "button": "Login"
+    }
+  },
+  "header": {
+    "navbar": {
+      "user_profile": {
+        "greeting": "Hi, ",
+        "profile": "Profile",
+        "logout": "Logout"
+      }
+    }
+  },
   "button": {
     "action": "Action",
     "read": "Read",
@@ -9,11 +28,16 @@
     "submit": "Submit",
     "cancel": "Cancel"
   },
-  "error": {
+  "errors": {
     "404_not_found": {
       "title": "Oops!",
       "sub_title": "Page Not Found",
       "button": "Back"
+    },
+    "unauthenticated": {
+      "title": "Unauthenticated",
+      "message": "You are need login",
+      "button": "Go to login page"
     }
   },
   "sidebar": {

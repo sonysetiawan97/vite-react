@@ -9,7 +9,7 @@ const { VITE_APP_BASE_URL } = import.meta.env;
 
 const AuthRoutes = lazy(() => import("@modules/auth/PrivateRoutes"));
 const PrivateRoutes = lazy(() => import("./PrivateRoutes"));
-const ErrorRoutes = lazy(() => import("@modules/errors/PrivateRoutes"));
+const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
 
 const AppRoutes: FC = () => {
   return (

@@ -8,6 +8,7 @@ import type {
 const { VITE_API_AUTH_URL, VITE_API_BASE_URL, VITE_API_TIMEOUT } = import.meta
   .env;
 
+  // TODO: need handling error to throw exactly page error
 const axiosSetup = (axios: Axios) => {
   axios.interceptors.request.use(
     (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
