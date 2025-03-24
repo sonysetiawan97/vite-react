@@ -46,7 +46,7 @@ export const Dashboard: FC = () => {
               <th scope="col">First</th>
               <th scope="col">Last</th>
               <th scope="col">Handle</th>
-              <th className="text-center" width="5%">
+              <th className="text-center">
                 Actions
               </th>
             </tr>

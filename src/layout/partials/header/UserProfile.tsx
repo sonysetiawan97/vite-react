@@ -10,8 +10,7 @@ export const UserProfile: FC = () => {
   return (
     <div className="dropdown ms-3">
       <button
-        className="btn btn-light border-0 shadow-none dropdown-toggle d-flex align-items-center gap-1"
-        type="button"
+        className="bg-transparent border-0 shadow-none dropdown-toggle d-flex align-items-center gap-1"
         id="dropdownUserButton"
         data-bs-toggle="dropdown"
         aria-expanded="false"
@@ -32,18 +31,20 @@ export const UserProfile: FC = () => {
         </span>
       </button>
 
-      <ul className="dropdown-menu" aria-labelledby="dropdownUserButton">
+      <ul className="dropdown-menu px-3" aria-labelledby="dropdownUserButton">
         <li>
-          <Link to={{ pathname: "/profile" }}>
+          <Link to={{ pathname: "/profile" }} className="d-flex align-items-center gap-1 text-dark py-1" >
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M172.31-100Q142-100 121-121q-21-21-21-51.31v-415.38Q100-618 121-639q21-21 51.31-21H380v-140q0-24.92 17.54-42.46T440-860h80q24.92 0 42.46 17.54T580-800v140h207.69Q818-660 839-639q21 21 21 51.31v415.38Q860-142 839-121q-21 21-51.31 21H172.31Zm0-60h615.38q5.39 0 8.85-3.46t3.46-8.85v-415.38q0-5.39-3.46-8.85t-8.85-3.46H580v15.39q0 24.53-17.73 42.26-17.73 17.73-42.27 17.73h-80q-24.54 0-42.27-17.73Q380-560.08 380-584.61V-600H172.31q-5.39 0-8.85 3.46t-3.46 8.85v415.38q0 5.39 3.46 8.85t8.85 3.46Zm73.84-91.54h227.7v-11.85q0-15.46-8.54-28.42T441.69-312q-19.61-8.62-39.73-12.92-20.11-4.31-41.96-4.31t-41.96 4.31q-20.12 4.3-39.73 12.92-15.08 7.23-23.62 20.19-8.54 12.96-8.54 28.42v11.85ZM560-312.31h160V-360H560v47.69ZM360-360q22.31 0 38.08-15.77t15.77-38.08q0-22.3-15.77-38.07T360-467.69q-22.31 0-38.08 15.77t-15.77 38.07q0 22.31 15.77 38.08T360-360Zm200-60h160v-47.69H560V-420ZM440-584.61h80V-800h-80v215.39ZM480-380Z"/></svg>
             {t("header.navbar.user_profile.profile")}
           </Link>
         </li>
         <li>
           <button
             type="button"
-            className="dropdown-item text-danger bg-transparent border-0"
+            className="dropdown-item text-danger bg-transparent border-0 d-flex gap-1 align-items-center px-0 py-1"
             onClick={logout}
           >
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#dc3645"><path d="M212.31-140Q182-140 161-161q-21-21-21-51.31v-535.38Q140-778 161-799q21-21 51.31-21h268.07v60H212.31q-4.62 0-8.46 3.85-3.85 3.84-3.85 8.46v535.38q0 4.62 3.85 8.46 3.84 3.85 8.46 3.85h268.07v60H212.31Zm436.92-169.23-41.54-43.39L705.08-450H363.85v-60h341.23l-97.39-97.38 41.54-43.39L820-480 649.23-309.23Z"/></svg>
             {t("header.navbar.user_profile.logout")}
           </button>
         </li>
