@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
-import type { Product } from "@/modules/products/types/Model";
+import type { Model } from "@/modules/products/types/Model";
 
-const data: Product[] = [
+const data: Model[] = [
   { id: "1", name: "A" },
   { id: "2", name: "B" },
 ];
