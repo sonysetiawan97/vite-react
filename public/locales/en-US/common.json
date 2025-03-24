@@ -66,5 +66,17 @@
     "prev": "prev",
     "next": "next",
     "last": "last"
+  },
+  "list": {
+    "title": "List",
+    "search": "Search..."
+  },
+  "modules": {
+    "products": {
+      "title": "Products"
+    },
+    "examples": {
+      "title": "Examples"
+    }
   }
 }

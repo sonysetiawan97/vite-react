@@ -4,6 +4,7 @@ import { Action } from "@/components/list/Action";
 import type { ColumnConfig } from "@/types/ColumnConfig";
 import { ListContainer } from "@/components/list/ListContainer";
 import { usePagination } from "@hooks/list/usePagination";
+import { useTranslation } from 'react-i18next';
 
 interface ListProps {
   data: Model[];
@@ -13,6 +14,8 @@ interface ListProps {
 
 export const List: FC<ListProps> = ({ data, count, isLoading }) => {
   const { skip, limit, setSkip } = usePagination();
+  const { t } = useTranslation();
+
   const columns: ColumnConfig<Model>[] = [
     { title: "#", name: "id", rowClassName: "font-weight-bold" },
     {
@@ -35,6 +38,7 @@ export const List: FC<ListProps> = ({ data, count, isLoading }) => {
 
   return (
     <ListContainer<Model>
+      title={t("modules.examples.title")}
       columns={columns}
       data={data}
       isLoading={isLoading}

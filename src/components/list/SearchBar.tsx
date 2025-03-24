@@ -1,17 +1,15 @@
 import { type FC, useState, useEffect } from "react";
 import { useSearch } from "@hooks/list/useSearch";
+import { useTranslation } from "react-i18next";
 
 interface SearchBarProps {
-  placeholder?: string;
   debounceMs?: number;
 }
 
-export const SearchBar: FC<SearchBarProps> = ({
-  placeholder = "Search...",
-  debounceMs = 500,
-}) => {
+export const SearchBar: FC<SearchBarProps> = ({ debounceMs = 500 }) => {
   const { query, setQuery } = useSearch();
   const [localQuery, setLocalQuery] = useState(query);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -45,7 +43,7 @@ export const SearchBar: FC<SearchBarProps> = ({
       <input
         type="search"
         className="form-control border-dark ps-5"
-        placeholder={placeholder}
+        placeholder={t("list.search")}
         value={localQuery}
         onChange={handleChange}
       />

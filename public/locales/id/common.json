@@ -48,5 +48,17 @@
     "prev": "sebelum",
     "next": "sesudah",
     "last": "akhir"
+  },
+  "list": {
+    "title": "Daftar",
+    "search": "Cari..."
+  },
+  "modules": {
+    "products": {
+      "title": "Produk"
+    },
+    "examples": {
+      "title": "Contoh"
+    }
   }
 }
