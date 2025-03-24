@@ -37,3 +37,5 @@ export const ListWrapper: FC = () => {
     />
   );
 };
+
+export default ListWrapper;

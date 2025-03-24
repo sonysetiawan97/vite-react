@@ -1,13 +1,13 @@
 import { lazy, Suspense, useEffect, type FC } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 
-import { ListWrapper } from "./pages/list/ListWrapper";
-import { AddPage } from "./pages/add/AddPage";
 import { LoadingPage } from "@components/loadings/LoadingPage";
 import { setPageTitle } from "@stores/PageHeaderStore";
 import { moduleName } from "./types/Model";
 
 const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
+const ListWrapper = lazy(() => import("./pages/list/ListWrapper"));
+const CreateWrapper = lazy(() => import("./pages/create/CreateWrapper"));
 
 const PrivateRoutes: FC = () => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const PrivateRoutes: FC = () => {
       <Routes>
         <Route element={<Outlet />}>
           <Route index element={<ListWrapper />} />
-          <Route path="/add" element={<AddPage />} />
+          <Route path="/create" index element={<CreateWrapper />} />
         </Route>
         <Route path="*" element={<ErrorRoutes />} />
       </Routes>

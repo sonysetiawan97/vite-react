@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-export const AddPage: FC = () => {
+const CreatePage: FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -126,3 +126,6 @@ export const AddPage: FC = () => {
     </div>
   );
 };
+
+export default CreatePage;
+export { CreatePage };

@@ -38,7 +38,7 @@ export const List: FC<ListProps> = ({ data, count, isLoading }) => {
 
   return (
     <ListContainer<Model>
-      title={t("modules.products.title")}
+      title={t("modules.products.list.title")}
       columns={columns}
       data={data}
       isLoading={isLoading}

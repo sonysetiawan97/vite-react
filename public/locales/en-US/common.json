@@ -73,10 +73,20 @@
   },
   "modules": {
     "products": {
-      "title": "Products"
+      "list": {
+        "title": "List Products"
+      },
+      "create": {
+        "title": "Create Products"
+      }
     },
     "examples": {
-      "title": "Examples"
+      "list": {
+        "title": "List Examples"
+      },
+      "create": {
+        "title": "Create Examples"
+      }
     }
   }
 }
