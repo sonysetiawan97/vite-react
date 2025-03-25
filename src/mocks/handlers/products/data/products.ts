@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 import type { CreateModel, Model } from "@modules/products/types/Model";
 
-export const mockProducts = Array.from({ length: 50 }, (_, i) => ({
-  id: i + 1,
+export const mockProducts: Model[] = Array.from({ length: 50 }, (_, i) => ({
+  id: (i + 1).toString(),
   name: faker.food.vegetable(),
 }));
 

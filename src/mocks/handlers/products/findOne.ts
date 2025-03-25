@@ -4,7 +4,7 @@ import { mockProducts } from "./data/products";
 export const findOne = http.get("/api/v1/products/:id", ({ params }) => {
   const { id } = params;
 
-  const data = mockProducts.find((entry) => entry.id.toString() === id);
+  const data = mockProducts.find((entry) => entry.id === id);
 
   if (!data) {
     return new HttpResponse(null, { status: 404, statusText: "Not found" });
