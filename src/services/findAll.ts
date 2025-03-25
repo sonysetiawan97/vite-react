@@ -1,6 +1,6 @@
 import axios, { type AxiosError } from "axios";
 
-export interface FindAllProps<T> {
+interface FindAllProps<T> {
   data: T[];
   count: number;
 }

@@ -1,15 +1,15 @@
 import { http, HttpResponse } from "msw";
-import type { Product } from "@/modules/products/types/Model";
+import { mockProducts } from "./data/products";
 
-const data: Product[] = [
-  { id: "1", name: "Java" },
-  { id: "2", name: "PHP" },
-];
+export const get = http.get("/api/v1/products", ({ request }) => {
+  const url = new URL(request.url);
+  const skip = Number(url.searchParams.get("skip") || 0);
+  const limit = Number(url.searchParams.get("limit") || 10);
 
-export const get = http.get("/api/v1/products", () => {
+  const data = mockProducts.slice(skip, skip + limit);
   const body = {
-    data: [...data],
-    count: data.length,
+    data,
+    count: mockProducts.length,
   };
   return HttpResponse.json(body, { status: 200, statusText: "Data retrieve." });
 });

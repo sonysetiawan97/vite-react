@@ -77,7 +77,14 @@
         "title": "List Products"
       },
       "create": {
-        "title": "Create Products"
+        "title": "Create Products",
+        "form": {
+          "name": "Name"
+        },
+        "notification": {
+          "success": "Product success created.",
+          "error": "Oops, failed to saved."
+        }
       }
     },
     "examples": {
