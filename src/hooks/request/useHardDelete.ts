@@ -7,7 +7,7 @@ interface HardDeleteMutationProps {
   id: string;
 }
 
-export const useHardDelete = (queryKey: string[]) => {
+export const useHardDelete = (queryKey: string) => {
   const queryClient = useQueryClient();
   const mutation = useMutation<void, AxiosError, HardDeleteMutationProps>({
     mutationFn: ({ url, id }) => {
@@ -15,7 +15,7 @@ export const useHardDelete = (queryKey: string[]) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [...queryKey],
+        queryKey: [queryKey],
       });
     },
     onError: (error) => {

@@ -2,7 +2,7 @@ import { useEffect, type FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { type Model, moduleName, type ReadModel } from "./../../types/Model";
 import { setBreadcrumbs } from "@stores/BreadcrumbStore";
-import CreatePage from "./ReadPage";
+import { ReadPage } from "./ReadPage";
 import { TitleBarWithIcon } from "@components/TitleBarWithIcon";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
@@ -10,7 +10,7 @@ import { useFindOneById } from "@hooks/request/useFindOneById";
 import NotFound from "@modules/errors/pages/404NotFound";
 import { LoadingPage } from "@components/loadings/LoadingPage";
 
-const CreateWrapper: FC = () => {
+const ReadWrapper: FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { data, error, isLoading } = useFindOneById<Model>(moduleName, id);
@@ -49,9 +49,9 @@ const CreateWrapper: FC = () => {
         }
         title={t("modules.products.read.title")}
       />
-      <CreatePage />
+      <ReadPage />
     </FormProvider>
   );
 };
 
-export default CreateWrapper;
+export default ReadWrapper;

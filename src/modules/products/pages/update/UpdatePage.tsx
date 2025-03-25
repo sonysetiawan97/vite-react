@@ -1,25 +1,26 @@
 import { Text } from "@components/form/inputs/Text";
-import { moduleName, type CreateModel } from "./../../types/Model";
+import { moduleName, type UpdateModel } from "./../../types/Model";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { CancelButton } from "@components/buttons/CancelButton";
 import { SubmitButton } from "@components/buttons/SubmitButton";
-import { useCreate } from "@hooks/request/useCreate";
 import { useSnackbar } from "notistack";
 import type { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
+import { BackButton } from "@components/buttons/BackButton";
+import { useUpdate } from "@hooks/request/useUpdate";
 
-const CreatePage = () => {
+const UpdatePage = () => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
-  const { handleSubmit, reset } = useFormContext<CreateModel>();
-  const { createAsync, isLoading } = useCreate<CreateModel>(moduleName);
+  const { handleSubmit, reset, getValues } = useFormContext<UpdateModel>();
+  const { updateAsync, isLoading } = useUpdate<UpdateModel>(moduleName);
   const navigate = useNavigate();
 
-  const onSubmit = async (data: CreateModel) => {
+  const onSubmit = async (data: UpdateModel) => {
     try {
-      await createAsync({ url: moduleName, body: data });
-      enqueueSnackbar(t("modules.products.create.notification.success"), {
+      const id = getValues("id");
+      await updateAsync({ id, url: moduleName, body: data });
+      enqueueSnackbar(t("modules.products.update.notification.success"), {
         variant: "success",
       });
 
@@ -36,12 +37,12 @@ const CreatePage = () => {
   return (
     <form className="row g-3" onSubmit={handleSubmit(onSubmit)}>
       <div className="col-12">
-        <Text name="name" label={t("modules.products.create.form.name")} />
+        <Text name="name" label={t("modules.products.update.form.name")} />
       </div>
 
       <div className="col-12">
         <div className="d-flex gap-2">
-          <CancelButton to={`/${moduleName}`} />
+          <BackButton />
           <SubmitButton isLoading={isLoading} />
         </div>
       </div>
@@ -49,5 +50,5 @@ const CreatePage = () => {
   );
 };
 
-export { CreatePage };
-export default CreatePage;
+export { UpdatePage };
+export default UpdatePage;

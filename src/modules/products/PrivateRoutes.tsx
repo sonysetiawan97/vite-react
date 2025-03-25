@@ -9,6 +9,7 @@ const ErrorRoutes = lazy(() => import("@modules/errors/ErrorRoutes"));
 const ListWrapper = lazy(() => import("./pages/list/ListWrapper"));
 const CreateWrapper = lazy(() => import("./pages/create/CreateWrapper"));
 const ReadWrapper = lazy(() => import("./pages/read/ReadWrapper"));
+const UpdateWrapper = lazy(() => import("./pages/update/UpdateWrapper"));
 
 const PrivateRoutes: FC = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const PrivateRoutes: FC = () => {
           <Route index element={<ListWrapper />} />
           <Route path="/create" index element={<CreateWrapper />} />
           <Route path="/:id" index element={<ReadWrapper />} />
+          <Route path="/:id/update" index element={<UpdateWrapper />} />
         </Route>
         <Route path="*" element={<ErrorRoutes />} />
       </Routes>

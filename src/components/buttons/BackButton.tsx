@@ -1,18 +1,15 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-interface BackButtonProps {
-  to: string;
-}
-
-const BackButton: FC<BackButtonProps> = ({ to }) => {
+const BackButton: FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
-    <Link to={to} className="btn bg-dark-subtle">
+    <button onClick={() => navigate(-1)} className="btn btn-dark" type="button">
       {t("button.back")}
-    </Link>
+    </button>
   );
 };
 

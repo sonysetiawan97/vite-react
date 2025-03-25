@@ -13,3 +13,8 @@ export interface ReadModel {
   id: string;
   name: string;
 }
+
+export interface UpdateModel {
+  id: string;
+  name: string;
+}

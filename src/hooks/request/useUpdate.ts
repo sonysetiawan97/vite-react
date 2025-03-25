@@ -9,7 +9,7 @@ interface UpdateMutationProps<T> {
   config?: AxiosRequestConfig;
 }
 
-export const useUpdate = <T>(queryKey: string[]) => {
+export const useUpdate = <T>(queryKey: string) => {
   const queryClient = useQueryClient();
   const mutation = useMutation<T, AxiosError, UpdateMutationProps<T>>({
     mutationFn: ({ url, id, body, config }) => {
@@ -17,7 +17,7 @@ export const useUpdate = <T>(queryKey: string[]) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [...queryKey],
+        queryKey: [queryKey],
       });
     },
     onError: (error) => {
@@ -26,7 +26,8 @@ export const useUpdate = <T>(queryKey: string[]) => {
   });
 
   return {
-    update: mutation.mutateAsync,
+    update: mutation.mutate,
+    updateAsync: mutation.mutateAsync,
     isLoading: mutation.isPending,
     error: mutation.error,
   };

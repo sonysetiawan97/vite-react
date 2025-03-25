@@ -93,6 +93,16 @@
         "form": {
           "name": "Name"
         }
+      },
+      "update": {
+        "title": "Update Products",
+        "form": {
+          "name": "Name"
+        },
+        "notification": {
+          "success": "Product success updated.",
+          "error": "Oops, failed to saved."
+        }
       }
     },
     "examples": {

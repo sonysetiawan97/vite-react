@@ -7,7 +7,7 @@ interface SoftDeleteMutationProps {
   id: string;
 }
 
-export const useSoftDelete = (queryKey: string[]) => {
+export const useSoftDelete = (queryKey: string) => {
   const queryClient = useQueryClient();
   const mutation = useMutation<void, AxiosError, SoftDeleteMutationProps>({
     mutationFn: ({ url, id }) => {
@@ -15,7 +15,7 @@ export const useSoftDelete = (queryKey: string[]) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [...queryKey],
+        queryKey: [queryKey],
       });
     },
     onError: (error) => {
