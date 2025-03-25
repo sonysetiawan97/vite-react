@@ -1,7 +1,7 @@
 import type { FC } from "react";
-import { ReadButton } from "@components/actions/ReadButton";
-import { EditButton } from "@components/actions/EditButton";
-import { DeleteButton } from "@components/actions/DeleteButton";
+import { ReadButton } from "@components/list/actions/ReadButton";
+import { EditButton } from "@components/list/actions/EditButton";
+import { DeleteButton } from "@components/list/actions/DeleteButton";
 
 interface ActionProps {
   id: string;

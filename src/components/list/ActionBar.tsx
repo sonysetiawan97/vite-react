@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { SearchBar } from "./SearchBar";
-import { CreateButton } from "../actions/CreateButton";
+import { CreateButton } from "./actions/CreateButton";
 
 export const ActionBar: FC = () => {
   return (

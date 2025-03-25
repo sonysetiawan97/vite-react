@@ -2,18 +2,18 @@ import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-interface CancelButtonProps {
+interface UpdateButtonProps {
   to: string;
 }
 
-const CancelButton: FC<CancelButtonProps> = ({ to }) => {
+const UpdateButton: FC<UpdateButtonProps> = ({ to }) => {
   const { t } = useTranslation();
 
   return (
     <Link to={to} className="btn bg-dark-subtle">
-      {t("button.cancle")}
+      {t("button.update")}
     </Link>
   );
 };
 
-export { CancelButton };
+export { UpdateButton };

@@ -29,3 +29,4 @@ const NotFound: FC = () => {
 };
 
 export { NotFound };
+export default NotFound;

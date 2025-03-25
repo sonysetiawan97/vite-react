@@ -41,8 +41,8 @@ const CreatePage = () => {
 
       <div className="col-12">
         <div className="d-flex gap-2">
-          <CancelButton label={t("button.cancel")} to="/products" />
-          <SubmitButton label={t("button.submit")} isLoading={isLoading} />
+          <CancelButton to={`/${moduleName}`} />
+          <SubmitButton isLoading={isLoading} />
         </div>
       </div>
     </form>

@@ -1,4 +1,5 @@
-import { get } from "./get";
+import { findAll } from "./findAll";
 import { create } from "./create";
+import { findOne } from "./findOne";
 
-export const handlers = [get, create];
+export const handlers = [findOne, findAll, create];

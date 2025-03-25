@@ -4,7 +4,10 @@ import type { CreateModel } from "@modules/products/types/Model";
 
 export const create = http.post("/api/v1/products", async ({ request }) => {
   const data = (await request.json()) as CreateModel;
-  const newProduct = mockCreateProduct(data);
-  mockProducts.push(newProduct);
-  return HttpResponse.json(newProduct, { status: 201 });
+  const product = mockCreateProduct(data);
+  mockProducts.push({
+    id: Number.parseInt(product.id),
+    name: product.name,
+  });
+  return HttpResponse.json(product, { status: 201 });
 });

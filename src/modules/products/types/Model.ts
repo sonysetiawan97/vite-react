@@ -8,3 +8,8 @@ export interface Model {
 export interface CreateModel {
   name: string;
 }
+
+export interface ReadModel {
+  id: string;
+  name: string;
+}

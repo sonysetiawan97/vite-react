@@ -30,7 +30,9 @@
     "delete": "Delete",
     "create": "Create",
     "submit": "Submit",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "back": "Back",
+    "update": "Update"
   },
   "errors": {
     "404_not_found": {
@@ -85,6 +87,12 @@
           "success": "Product success created.",
           "error": "Oops, failed to saved."
         }
+      },
+      "read": {
+        "title": "Read Products",
+        "form": {
+          "name": "Name"
+        }
       }
     },
     "examples": {
@@ -94,6 +102,11 @@
       "create": {
         "title": "Create Examples"
       }
+    }
+  },
+  "request": {
+    "error": {
+      "no_id": "No ID Provided."
     }
   }
 }

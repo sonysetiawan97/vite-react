@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { findOneById } from "@services/findOneById";
+import i18next from "i18next";
 
-export const useFindOneById = <T>(
-  queryKey: string[],
-  url: string,
-  id: string
-) => {
+export const useFindOneById = <T>(url: string, id?: string) => {
   return useQuery({
-    queryKey: [...queryKey],
-    queryFn: () => findOneById<T>(url, id),
+    queryKey: [url, id],
+    queryFn: () =>
+      id
+        ? findOneById<T>(url, id)
+        : Promise.reject(i18next.t("request.error.no_id")),
     enabled: !!id,
   });
 };

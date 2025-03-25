@@ -8,8 +8,9 @@ interface ReadButtonProps {
 
 export const ReadButton: FC<ReadButtonProps> = ({ id }) => {
   const { t } = useTranslation();
+
   return (
-    <Link to={id} className="button-link">
+    <Link to={`${id}`} className="button-link">
       <svg
         className="d-flex"
         xmlns="http://www.w3.org/2000/svg"
