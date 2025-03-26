@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw";
 import { mockProducts } from "./data/products";
 import type { UpdateModel } from "@modules/products/types/Model";
 
-export const update = http.post(
+export const update = http.put(
   "/api/v1/products/:id/update",
   async ({ request, params }) => {
     const { id } = params;
