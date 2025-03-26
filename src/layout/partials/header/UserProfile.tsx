@@ -8,15 +8,14 @@ export const UserProfile: FC = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="dropdown ms-3">
+    <div className="dropdown ms-3 ">
       <button
-        className="bg-transparent border-0 shadow-none dropdown-toggle d-flex align-items-center gap-1"
+        className="bg-transparent border-0 shadow-none d-flex align-items-center gap-1 px-0"
         id="dropdownUserButton"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 -960 960 960"
           width="26px"

@@ -33,6 +33,14 @@ a {
 .app-header .page-title .page-heading {
   font-size: 1rem !important;
 }
+.card-notif {
+  min-width: 360px;
+}
+.card-notif .date {
+  font-size: .7rem;
+  color:rgb(164, 164, 164);
+  white-space: nowrap
+}
 
 /* app-Sidebar */
 .app-sidebar {
