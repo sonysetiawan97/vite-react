@@ -5,15 +5,15 @@ import { DeleteButton } from "@components/list/actions/DeleteButton";
 
 interface ActionProps {
   id: string;
-  onDelete?: (id: string) => void;
+  module: string;
 }
 
-export const Action: FC<ActionProps> = ({ id, onDelete }) => {
+export const Action: FC<ActionProps> = ({ id, module }) => {
   return (
     <div className="d-flex gap-1 align-items-center">
       <ReadButton id={id} />
       <EditButton id={id} />
-      <DeleteButton id={id} onClick={onDelete} />
+      <DeleteButton id={id} module={module} />
     </div>
   );
 };

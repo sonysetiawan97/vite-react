@@ -6,10 +6,12 @@ export const findAll = http.get("/api/v1/products", ({ request }) => {
   const skip = Number(url.searchParams.get("skip") || 0);
   const limit = Number(url.searchParams.get("limit") || 10);
 
-  const data = mockProducts.slice(skip, skip + limit);
+  const entries = mockProducts.filter((entry) => entry.status === 1);
+
+  const data = entries.slice(skip, skip + limit);
   const body = {
     data,
-    count: mockProducts.length,
+    count: entries.length,
   };
   return HttpResponse.json(body, { status: 200, statusText: "Data retrieve." });
 });

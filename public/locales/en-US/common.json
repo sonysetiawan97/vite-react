@@ -34,6 +34,14 @@
     "back": "Back",
     "update": "Update"
   },
+  "modal": {
+    "confirmation": {
+      "delete": "Delete Confirmation"
+    },
+    "notification": {
+      "success": "Item success deleted."
+    }
+  },
   "errors": {
     "404_not_found": {
       "title": "Oops!",

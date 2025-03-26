@@ -24,7 +24,8 @@ export const useSoftDelete = (queryKey: string) => {
   });
 
   return {
-    softDelete: mutation.mutateAsync,
+    softDelete: mutation.mutate,
+    softDeleteAsync: mutation.mutateAsync,
     isLoading: mutation.isPending,
     error: mutation.error,
   };

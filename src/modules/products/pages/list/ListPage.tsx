@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { Model } from "../../types/Model";
+import { moduleName, type Model } from "../../types/Model";
 import { Action } from "@/components/list/Action";
 import type { ColumnConfig } from "@/types/ColumnConfig";
 import { ListContainer } from "@/components/list/ListContainer";
@@ -31,7 +31,7 @@ export const List: FC<ListProps> = ({ data, count, isLoading }) => {
       headerClassName: "header-action-list text-center",
       render: (row) => {
         const { id } = row;
-        return <Action id={id} />;
+        return <Action id={id} module={moduleName} />;
       },
     },
   ];
